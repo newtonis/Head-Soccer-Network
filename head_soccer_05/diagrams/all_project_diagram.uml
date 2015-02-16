@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/newtonis/Dropbox/Proyectos2015/HeadSoccer/head_soccer_05/source</OriginalElement>
+  <nodes>
+    <node x="0.0" y="476.0">source.network_game.list_system.ContentRow</node>
+    <node x="0.0" y="400.0">source.gui.window.TestWindow</node>
+    <node x="0.0" y="704.0">source.data.images.Backgrounds</node>
+    <node x="309.0" y="704.0">source.data.fonts.MotionControl</node>
+    <node x="326.0" y="628.0">source.data.fonts.AldoTheApache</node>
+    <node x="135.25" y="162.0">source.gui.button.TriImageButton</node>
+    <node x="387.0" y="552.0">source.network_game.list_system.Key</node>
+    <node x="165.25" y="81.0">source.gui.button.Button</node>
+    <node x="590.75" y="0.0">source.gui.element.Element</node>
+    <node x="395.25" y="81.0">source.network_game.list_system.ListSystem</node>
+    <node x="943.75" y="162.0">source.gui.text.Title</node>
+    <node x="0.0" y="856.0">source.data.fonts.PixelSplitter</node>
+    <node x="0.0" y="780.0">source.data.fonts.CTProLamina</node>
+    <node x="297.0" y="780.0">source.data.fonts.PowerChord</node>
+    <node x="277.0" y="243.0">source.gui.button.ConnectButton</node>
+    <node x="0.0" y="243.0">source.gui.button.ClassicButton</node>
+    <node x="276.0" y="400.0">source.network_game.server_list.ServerListWindow</node>
+    <node x="0.0" y="628.0">source.gui.button.BUTTON_IMAGES</node>
+    <node x="289.0" y="856.0">source.data.fonts.BebasNeue</node>
+    <node x="0.0" y="552.0">source.gui.graphicManager.GraphicManager</node>
+    <node x="943.25" y="81.0">source.gui.text.Text</node>
+    <node x="188.0" y="319.0">source.gui.window.Window</node>
+    <node x="763.25" y="81.0">source.gui.bar.Bar</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="source.gui.button.ClassicButton" target="source.gui.button.TriImageButton">
+      <point x="0.0" y="-15.5" />
+      <point x="128.5" y="218.0" />
+      <point x="202.75" y="218.0" />
+      <point x="-67.5" y="15.5" />
+    </edge>
+    <edge source="source.gui.text.Text" target="source.gui.element.Element">
+      <point x="0.0" y="-15.5" />
+      <point x="1030.25" y="51.0" />
+      <point x="792.875" y="51.0" />
+      <point x="86.625" y="15.5" />
+    </edge>
+    <edge source="source.gui.bar.Bar" target="source.gui.element.Element">
+      <point x="0.0" y="-15.5" />
+      <point x="843.25" y="61.0" />
+      <point x="735.125" y="61.0" />
+      <point x="28.875" y="15.5" />
+    </edge>
+    <edge source="source.gui.text.Title" target="source.gui.text.Text">
+      <point x="0.0" y="-15.5" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="source.gui.button.TriImageButton" target="source.gui.button.Button">
+      <point x="0.0" y="-15.5" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="source.gui.window.TestWindow" target="source.gui.window.Window">
+      <point x="0.0" y="-15.5" />
+      <point x="128.0" y="375.0" />
+      <point x="244.25" y="375.0" />
+      <point x="-56.25" y="15.5" />
+    </edge>
+    <edge source="source.network_game.list_system.ListSystem" target="source.gui.element.Element">
+      <point x="0.0" y="-15.5" />
+      <point x="569.25" y="61.0" />
+      <point x="677.375" y="61.0" />
+      <point x="-28.875" y="15.5" />
+    </edge>
+    <edge source="source.gui.button.Button" target="source.gui.element.Element">
+      <point x="0.0" y="-15.5" />
+      <point x="270.25" y="51.0" />
+      <point x="619.625" y="51.0" />
+      <point x="-86.625" y="15.5" />
+    </edge>
+    <edge source="source.network_game.server_list.ServerListWindow" target="source.gui.window.Window">
+      <point x="0.0" y="-15.5" />
+      <point x="473.0" y="375.0" />
+      <point x="356.75" y="375.0" />
+      <point x="56.25" y="15.5" />
+    </edge>
+    <edge source="source.gui.button.ConnectButton" target="source.gui.button.TriImageButton">
+      <point x="0.0" y="-15.5" />
+      <point x="412.0" y="218.0" />
+      <point x="337.75" y="218.0" />
+      <point x="67.5" y="15.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6769570011025359" x="559.9486970684038" y="343.5" />
+  <SelectedNodes />
+  <Categories />
+</Diagram>
+
