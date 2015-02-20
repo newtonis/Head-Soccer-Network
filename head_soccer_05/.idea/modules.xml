@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/head_soccer.iml" filepath="$PROJECT_DIR$/.idea/head_soccer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../head_soccer_04/.idea/head_soccer_04 (newtonis penguin's conflicted copy 2015-01-24).iml" filepath="$PROJECT_DIR$/../head_soccer_04/.idea/head_soccer_04 (newtonis penguin's conflicted copy 2015-01-24).iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/head_soccer_05.iml" filepath="$PROJECT_DIR$/.idea/head_soccer_05.iml" />
     </modules>
   </component>
 </project>

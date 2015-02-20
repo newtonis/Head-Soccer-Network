@@ -1,16 +1,1 @@
 # Created by .ignore support plugin (hsz.mobi)
-databases
-extras
-fonts
-images
-server
-server_db
-source
-.floo
-.flooignore
-FLOOBITS_README.mdche
-initClientDB.py
-initServerDB.py
-main.py
-server_run.py
-test_physics.py
