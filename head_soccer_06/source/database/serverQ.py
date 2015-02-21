@@ -40,3 +40,36 @@ def DeleteServer(server_name):
 
     conn.commit()
     conn.close()
+
+def UpdateTresHold(value):
+    conn = sqlite3.connect("databases/servers.db")
+    c = conn.cursor()
+    c.execute("UPDATE config SET threshold=:th",{"th":value})
+    conn.commit()
+    conn.close()
+
+def UpdateInterpolation(value):
+    conn = sqlite3.connect("databases/servers.db")
+    c = conn.cursor()
+    c.execute("UPDATE config SET interpolation=:int",{"int":value})
+    conn.commit()
+    conn.close()
+
+def UpdateConfig(threshold,interpolation):
+    conn = sqlite3.connect("databases/servers.db")
+    c = conn.cursor()
+    c.execute("UPDATE config SET threshold=:th,interpolation=:int",{"th":threshold,"int":interpolation})
+    conn.commit()
+    conn.close()
+
+def GetConfigData():
+    conn = sqlite3.connect("databases/servers.db")
+    c = conn.cursor()
+
+    for row in c.execute("SELECT * FROM config"):
+        data = row
+
+    conn.commit()
+    conn.close()
+
+    return data

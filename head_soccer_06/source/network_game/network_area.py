@@ -1,6 +1,7 @@
 __author__ = 'newtonis'
 
 import pygame
+import threading
 from source.data import fonts
 from source.gui.container import Container
 from source.gui.button import NeutralButton
@@ -10,6 +11,7 @@ from source.network_game.join_window import JoinWindow
 from source.network_game.match_final_window import MatchFinalWindow
 from source.network_game.ping.utils import *
 from source.network_game.ping.ping_window import *
+from source.network_game.ping.config_window import ConfigWindow
 import time
 
 
@@ -50,11 +52,12 @@ class NetworkArea(Container):
 
         self.NeedConfirm = dict()
         self.AddExitButton()
+        self.AddConfigButton()
         self.AddPingNumber()
 
         self.pingStatus = "normal"
         self.maxSupportedPing = 500
-        self.fixedPing = 500
+        self.fixedPing = 250
     def AddPingNumber(self):
         pingText = Text(fonts.Absender.c20,"       ",(0,0,0))
         pingText.x = self.game.pixelWidth - 20 - pingText.surface.get_size()[0]
@@ -65,14 +68,22 @@ class NetworkArea(Container):
         button.x = 20
         button.y = 10
         self.Add(button,"ExitButton")
+    def AddConfigButton(self):
+        button = NeutralButton("Settings",width=100,font=fonts.BebasNeue.c20)
+        button.x = 20
+        button.y = 50
+        self.Add(button,"ConfigButton")
+    def OpenConfigWindow(self):
+        self.parent.AddWindowCenteredOnFront(ConfigWindow(),None,"configWindow")
     def LogicUpdate(self):
 
         Container.LogicUpdate(self)
         if self.ButtonCheck("ExitButton") and not self.parent.noCheckExit:
             self.parent.OpenCheckExit()
+        if self.ButtonCheck("ConfigButton") and not self.parent.noCheckExit:
+            self.OpenConfigWindow()
 
         if self.waiting_for_colition["waiting"]:
-            print "WAITING"
             if time.time() - self.waiting_for_colition["time"] > .3:
                 self.waiting_for_colition["waiting"] = False
 
@@ -130,14 +141,17 @@ class NetworkArea(Container):
         Container.GraphicUpdate(self,screen)
     def PlayerCollision(self,player_position,player_lv,ball_position,ball_lv):
         pass
+    def MultipleMe(self,data,wait):
+        time.sleep(float(wait)/1000.0)
+        for x in data["mes"]:
+            self.NetworkAction(x)
     def NetworkAction(self,data):
         if data["type"] == "ae": #### ADD ELEMENT ####
             self.game.CreateElement(data["cd"])
         elif data["type"] == "multiple-me":
             if data["cc"]:
                 self.RegisterRecv()
-            for x in data["mes"]:
-                self.NetworkAction(x)
+            self.MultipleMe(data,0)
         elif data["type"] == "me": ### UPDATE ELEMENT POSITION ###
             self.game.UpdateElementPosition(data["id"],data["p"],data["lv"])
         elif data["type"] == "ed": ### ELEMENT DELETED ###
@@ -252,7 +266,6 @@ class NetworkArea(Container):
                 for x in range(int(moment),self.timeEvt+1):
                     self.game.world.Step(self.game.TIME_STEP,10,10)
     def GetPing(self):
-
         if time.time()*1000-self.takeSent > 3000:
             self.RegisterRecv()
         last_ping = self.currentPing

@@ -20,6 +20,7 @@ class AldoTheApache:
 
 class BebasNeue:
     c15 = LoadFont("BebasNeue.ttf",15)
+    c17 = LoadFont("BebasNeue.ttf",17)
     c20 = LoadFont("BebasNeue.ttf",20)
     c22 = LoadFont("BebasNeue.ttf",22)
     c25 = LoadFont("BebasNeue.ttf",25)

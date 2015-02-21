@@ -26,6 +26,7 @@ class CheckExit(Window):
         self.AddElement(buttonContinue,"NoQuit")
     def ExtraLogicUpdate(self):
         if self.ButtonCheck("Exit"):
+            self.Kill()
             self.parent.noCheckExit = False
             self.parent.ReturnRoomList()
         if self.ButtonCheck("NoQuit"):

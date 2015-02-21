@@ -193,139 +193,166 @@ class LettersAnimation:
     def EndLoop(self):
         return self.loop >= self.loops # Get if process is finished
 
+###  Engine to contol the goal animation  ###
 class LetterSystem:
     def __init__(self,parent):
+        """
+        :param parent: Is the parent class, used if some function is needed
+        """
         self.parent = parent
-        self.CurrentAnimation = None
-        #self.nextAnimation = None
-        self.autoRemove = False
-        self.status = "noAnimation"
+        self.CurrentAnimation = None # Setting current animation to None until AddWord is called
+        self.autoRemove = False # Don't used
+        self.status = "noAnimation" # Status sets what to do in logic update
     def LogicUpdate(self):
         if not self.CurrentAnimation:
-            return
-        self.CurrentAnimation.LogicUpdate()
-        if self.status == "Starting":
-            if self.CurrentAnimation.EndLoop() and self.waitTime != -1:
-                self.status = "WaitingExit"
-                self.waitRef = time.time() * 1000
-        elif self.status == "WaitingExit":
-            if time.time() * 1000 - self.waitRef > self.waitTime * 1000:
-                self.RemoveWord()
-        elif self.status == "Ending":
-            if self.CurrentAnimation.EndLoop():
-                self.CurrentAnimation = None
+            return # If we have no word, don't update
+        self.CurrentAnimation.LogicUpdate() # Update the current animation
+        if self.status == "Starting": # Status is starting when animation is running
+            if self.CurrentAnimation.EndLoop() and self.waitTime != -1: # If animation finished
+                self.status = "WaitingExit" # Changing status to waiting time
+                self.waitRef = time.time() * 1000 # Set wait ref to actual time in seconds
+        elif self.status == "WaitingExit": # Waiting time after current animation finished and before removing word
+            if time.time() * 1000 - self.waitRef > self.waitTime * 1000: # Calculating if waiting time is superated
+                self.RemoveWord() # Removing word in reverse
+        elif self.status == "Ending": # If word is in reverse
+            if self.CurrentAnimation.EndLoop(): # If finished the animation
+                self.CurrentAnimation = None # Deleting animation and logic update will stop
     def GraphicUpdate(self,screen):
-        if self.CurrentAnimation:
-            self.CurrentAnimation.GraphicUpdate(screen)
+        if self.CurrentAnimation: # If current animation exist
+            self.CurrentAnimation.GraphicUpdate(screen) # Graphic updating the current animation
     def AddWord(self,word,color,time,font,autoRemoveTime=3):
-        self.CurrentAnimation = LettersAnimation(word,color,self.parent,time,font)
-        self.waitTime = autoRemoveTime
-        self.status = "Starting"
-    def RemoveWord(self): ### CALLED IN CASE autoRemoveTime=-1
-        self.CurrentAnimation.Reverse()
-        self.status = "Ending"
+        """
+        :param word:           Word to add
+        :param color:          Color of word render
+        :param time:           Loops of duration of the animation
+        :param font:           Font to use to render the word
+        :param autoRemoveTime: Time to wait after animation finish to start word reverse
+        """
+        self.CurrentAnimation = LettersAnimation(word,color,self.parent,time,font) # Generate current animation
+        self.waitTime = autoRemoveTime # Set waiting time
+        self.status = "Starting" # Change status to running status
+    def RemoveWord(self):
+        ### Setting word to reverse mode ###
+        self.CurrentAnimation.Reverse() # Setting current animation to reverse
+        self.status = "Ending" # Changing status to reverse status
     def EndLoop(self):
+        ### Return if anination is finished ###
         if not self.CurrentAnimation:
-            return False
-        return self.CurrentAnimation.EndLoop()
+            return False # If current animation don't exist, return False
+        return self.CurrentAnimation.EndLoop() # Return if current animation finished
 
+###  Control score text and goal animation  ###
 class ScoreSystem(container.Container):
     def __init__(self,parent):
-        container.Container.__init__(self)
+        """ Container contains the two numbers and the "-" to separate
+        :param parent: Parent is usually PowerGameEngine to use if some function is needed
+        """
+        container.Container.__init__(self) # Calling init of containter class
         self.parent = parent
-        self.scoreA = 0
-        self.scoreB = 0
-        self.letterSys = None
-        self.ChangeStatus("disabled")
-        self.args = None
-        self.new_flag = False
-        self.color = (0,0,0)
+        self.scoreA = 0 # Save score of left player
+        self.scoreB = 0 # Save score of right player
+        self.letterSys = None # Goal animation is None becouse is inactive
+        self.ChangeStatus("disabled") # Disabled until initial score is set
+        self.args = None # Args is the letter of player to modify now
+        self.new_flag = False # Set if have to add new word to LetterSystem
+        self.color = (0,0,0) # Score color
     def SetLetterSystem(self,system):
-        self.letterSys = system
+        self.letterSys = system # Setting letter system
     def LogicUpdate(self):
-        container.Container.LogicUpdate(self)
+        container.Container.LogicUpdate(self) # Updating all elements in containers
         if self.args != None:
-            if not self.Ereferences.has_key("Score "+self.args):
-                self.status = "disabled"
+            if not self.Ereferences.has_key("Score "+self.args): # if actual key don't exist
+                self.status = "disabled" # Disable status
 
         if self.status == "disabled":
             pass
         elif self.status == "normal":
             pass
-        elif self.status == "goal_change":
-            if self.new_flag:
-                self.letterSys.AddWord("GOAL",(100,100,200),20,"Classic",-1)
-            if self.letterSys.EndLoop():
-                self.ChangeStatus("score_back")
-        elif self.status == "score_back":
-            self.Ereferences["Score "+self.args].y -= 3
-            if self.Ereferences["Score "+self.args].y < -100:
-                self.ChangeStatus("score_change")
-                self.Ereferences["Score "+self.args].y = -100
-        elif self.status == "score_change":
-            self.UpdateScore(self.args,-100)
-            self.ChangeStatus("score_return")
-        elif self.status == "score_return":
-            self.Ereferences["Score "+self.args].y += 3
-            if self.Ereferences["Score "+self.args].y > 20:
-                self.Ereferences["Score "+self.args].y = 20
-                self.letterSys.RemoveWord()
-                self.ChangeStatus("normal")
-        if self.new_flag:
+        elif self.status == "goal_change": # Status of goal animation
+            if self.new_flag: # If word isn't created
+                self.letterSys.AddWord("GOAL",(100,100,200),20,"Classic",-1) # Creating word in letter system
+            if self.letterSys.EndLoop(): # If letter system finished the animation
+                self.ChangeStatus("score_back") # Get out score surface to change surface
+        elif self.status == "score_back": # Animation when score is going up after goal animation
+            self.Ereferences["Score "+self.args].y -= 3 # Getting down Y position
+            if self.Ereferences["Score "+self.args].y < -100: # If position is in the finish position
+                self.ChangeStatus("score_change") # Change status to update score surfaces and return surfaces to original pos
+                self.Ereferences["Score "+self.args].y = -100 # Set position to final position if passed
+        elif self.status == "score_change": # Update score surface
+            self.UpdateScore(self.args,-100) # Deleting last
+            self.ChangeStatus("score_return") # Return score surface to original position
+        elif self.status == "score_return": # Animation when score is going down after score is changed
+            self.Ereferences["Score "+self.args].y += 3 # Getting up Y position
+            if self.Ereferences["Score "+self.args].y > 20: # If Y is at final position
+                self.Ereferences["Score "+self.args].y = 20 # Set Y to final position if passed
+                self.letterSys.RemoveWord() # Delete word from letter system
+                self.ChangeStatus("normal") # Return to normal status
+        if self.new_flag: # If new flag is active, the word was created and have to return to inactive
             self.new_flag = False
     def ChangeStatus(self,status):
-        self.status = status
-        self.new_flag = True
+        self.status = status # Change status
+        self.new_flag = True # If status is changed to goal_change, it have to create a new word
     def GraphicUpdate(self,screen):
-        container.Container.GraphicUpdate(self,screen)
+        container.Container.GraphicUpdate(self,screen) # Graphic updating all container objects
     def SetScore(self,letter,score):
-        if letter == "A":
-            self.scoreA = score
-            self.ChangeStatus("goal_change")
-            self.args = "A"
-        if letter == "B":
-            self.scoreB = score
-            self.ChangeStatus("goal_change")
-            self.args = "B"
+        """
+        :param letter: Letter of player. A is left and B is right
+        :param score: New score value
+        """
+        if letter == "A": # If is left player
+            self.scoreA = score # Set new score to A player
+            self.ChangeStatus("goal_change") # Changing status
+            self.args = "A" # Set moving letter to A
+        if letter == "B": # If is right player
+            self.scoreB = score # Setting new score to B player
+            self.ChangeStatus("goal_change") # Changing status
+            self.args = "B" # Set moving letter to B
     def Enable(self):
-        self.status = "normal"
-        self.scoreA = 0
-        self.scoreB = 0
-        self.AddSurfaces()
+        # Change all to default
+        self.status = "normal" # Set status mode to normal
+        self.scoreA = 0 # Set player A score to 0
+        self.scoreB = 0 # Set player B score to 0
+        self.AddSurfaces() # Generate score surfaces
     def Disable(self):
-        self.enabled = False
-        self.RemoveSurfaces()
+        # Disable
+        self.enabled = False # Disable container
+        self.RemoveSurfaces() # Delete surfaces
     def AddSurfaces(self):
-        self.UpdateScore("A")
-        self.UpdateScore("B")
-        self.AddBar()
+        self.UpdateScore("A") # Generate A surface
+        self.UpdateScore("B") # Generate B surface
+        self.AddBar() # Generate mid bar
     def RemoveSurfaces(self):
-        self.Delete("Score A")
-        self.Delete("Score B")
-        self.Delete("Bar")
+        self.Delete("Score A") # Delete surface A
+        self.Delete("Score B") # Delete surface B
+        self.Delete("Bar") # Delete bar surface
     def UpdateScore(self,letter,y=20):
-        self.Delete("Score "+str(letter))
-        text = fonts.BebasNeue.c60.render(str(self.GetScore(letter)),1,self.color)
+        """
+        :param letter: Letter of player to update surface
+        :param y: New Y surface position
+        """
+        self.Delete("Score "+str(letter)) # Delete surface of letter parameter
+        text = fonts.BebasNeue.c60.render(str(self.GetScore(letter)),1,self.color) # Generate render of text
 
-        positions = self.parent.pixelWidth/2-30-text.get_size()[0] , self.parent.pixelWidth/2+30
+        positions = self.parent.pixelWidth/2-30-text.get_size()[0] , self.parent.pixelWidth/2+30 # X position of two surfaces
         if letter == "A":
-            pos = positions[0]
+            pos = positions[0] # Score A position
         else:
-            pos = positions[1]
+            pos = positions[1] # Score B position
 
-        score = Surface(text,(pos,y))
-        self.Add(score,"Score "+str(letter))
+        score = Surface(text,(pos,y)) # Generate score surface
+        self.Add(score,"Score "+str(letter)) # Add surface with score + letter of reference
     def AddBar(self):
-        self.Delete("Bar")
-        text = fonts.BebasNeue.c60.render(str("-"),0,self.color)
-        surface = Surface(text,(self.parent.pixelWidth/2-9,20))
-        self.Add(surface,"Bar")
+        self.Delete("Bar") # Delete bar element
+        text = fonts.BebasNeue.c60.render(str("-"),0,self.color) # Generate render
+        surface = Surface(text,(self.parent.pixelWidth/2-9,20)) # Generate surface of render
+        self.Add(surface,"Bar") # Add surface with bar to container
     def GetScore(self,letter):
-        if letter == "A":
+        if letter == "A": # Return score A
             return self.scoreA
-        elif letter == "B":
+        elif letter == "B": # Return score B
             return self.scoreB
 
+###  Counter engine
 class ClockSystem:
     def __init__(self,duration,parent):
         self.parent = parent
@@ -636,7 +663,6 @@ class ClockSystemCont:
 
 class PowerGameEngine(ScoreSystemCont,ClockSystemCont):
     def __init__(self,mode):
-
         self.elements = dict() #### LOS QUE SE MUEVEN MUCHO ####
         self.static = dict() #### LOS QUE ESTAN SEMI QUIETOS ####
         self.extraDraw = dict() #### CRONOMETRO , MARCADOR ####
