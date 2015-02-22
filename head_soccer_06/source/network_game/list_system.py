@@ -94,6 +94,9 @@ class ListSystem(Element):
         self.SetItemColor((41,0,69),(149,0,255))
         self.SetUpBackground((23,0,45),(86,0,173))
         self.sendInfoDef = None
+
+        self.upPressed = False
+        self.downPressed = False
     def SetSendInfoDef(self,func):
         self.sendInfoDef = func
     def SetBackground(self,backgroundA,backgroundB):
@@ -175,7 +178,27 @@ class ListSystem(Element):
                     if mouse_y > 50 and mouse_y < self.height+50:
                         mouse_y -= 50
                         self.SetSelected(float(mouse_y+fix)/30.0)
-
+            keys = pygame.key.get_pressed()
+            if keys[pygame.K_UP] and not self.upPressed:
+                self.goUp()
+                self.upPressed = True
+            if not keys[pygame.K_UP]:
+                self.upPressed = False
+            if keys[pygame.K_DOWN] and not self.downPressed:
+                self.goDown()
+                self.downPressed = True
+            if not keys[pygame.K_DOWN]:
+                self.downPressed = False
+    def goUp(self):
+        nselected = self.selected - 1
+        if nselected < 0:
+            nselected = len(self.contents)
+        self.SetSelected(nselected)
+    def goDown(self):
+        nselected = self.selected + 1
+        if nselected >= len(self.contents):
+            nselected = 0
+        self.SetSelected(nselected)
     def SetSelected(self,selected):
         selected = int(selected)
         if self.sendInfoDef:

@@ -46,7 +46,6 @@ def main():
         clock.tick(40) #we'll play with 40 fps
         #pygame.display.update()
 
-    clock.tick(20)
     graphicManager.End()
 if __name__ == "__main__":
     main()

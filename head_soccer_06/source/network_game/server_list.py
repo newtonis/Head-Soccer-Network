@@ -6,7 +6,7 @@ from source.gui.button import AdvancedButton,Button,ButtonImage,BUTTON_IMAGES,Cl
 from source.data import fonts
 from source.network_game import list_system
 from source.network_game.server_window import ServerWindow
-from source.database import serverQ
+from source.database.mysql import MySQL
 import source.network_game.add_server_window as AddServerWindow
 
 def add0(value):
@@ -46,21 +46,22 @@ class ServerListWindow(Window):
         connectButton.x = self.width/2 - connectButton.image.get_size()[0]/2
         self.AddElement(connectButton,"ConnectButton")
 
-        add = ClassicButton("+",(0,255,0),(0, listSystem.y + listSystem.height + 50))
+        """add = ClassicButton("+",(0,255,0),(0, listSystem.y + listSystem.height + 50))
         add.x = listSystem.x + listSystem.width - add.imageA.get_size()[0]
         self.AddElement(add,"AddButton")
 
         remove = ClassicButton("-",(255,0,0),(0,add.y))
         remove.x = add.x - remove.size[0]
-        self.AddElement(remove,"RemoveButton")
+        self.AddElement(remove,"RemoveButton")"""
 
         self.LoadLocalSevers()
     def AddFake(self):
         for x in range(20):
             self.AddRow(add0(x)+":"+add0(x)+":"+add0(x)+":"+add0(x),"fake server "+str(x))
     def LoadLocalSevers(self):
-        for row in serverQ.GetServerList():
-            self.AddRow(row[0],row[1])
+        MySQL.CheckDeadServers()
+        for row in MySQL.GetServers():
+            self.AddRow(row["IP"],row["Name"])
     def UpdateLocalServers(self):
         self.references["ListSystem"].contents = []
         self.LoadLocalSevers()
@@ -73,14 +74,14 @@ class ServerListWindow(Window):
             if self.references["ListSystem"].selected != -1:
                 self.HandleServerWindowOpen(self.references["ListSystem"].ServerOpen())
                 self.enabled = False
-        if self.references["AddButton"].pressed:
+        """if self.references["AddButton"].pressed:
             self.AddServer()
             self.enabled = False
         if self.references["RemoveButton"].pressed:
             if self.references["ListSystem"].selected != -1:
                 serverQ.DeleteServer(self.references["ListSystem"].contents[self.references["ListSystem"].selected].content["Name"])
                 self.UpdateLocalServers()
-                self.references["ListSystem"].selected = -1
+                self.references["ListSystem"].selected = -1"""
 
     def HandleServerWindowOpen(self,server):
         self.parent.AddWindowCenteredOnFront(ServerWindow(0,0,server["Name"],server["IP"],self.parent),pygame.display.get_surface())

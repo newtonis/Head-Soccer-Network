@@ -2,8 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5a80ea8-b5da-4fa8-b2a5-7d534b5a2026" name="Default" comment="Daily update">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/network_game/ping/config_window.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/database/mysql.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/database/tourney/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/database/tourney/league.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/database/mysql.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/gui/rects.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/database/tourney/tourney.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.flooignore" afterPath="$PROJECT_DIR$/.flooignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/gui/graphicManager.py" afterPath="$PROJECT_DIR$/source/gui/graphicManager.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/network_game/list_system.py" afterPath="$PROJECT_DIR$/source/network_game/list_system.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/database/mysql.py" afterPath="$PROJECT_DIR$/source/database/mysql.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/server.py" afterPath="$PROJECT_DIR$/server/server.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/network_game/server_list.py" afterPath="$PROJECT_DIR$/source/network_game/server_list.py" />
+    </list>
+    <list id="fffa1d57-4302-4aa2-9d3b-3a09858ccd07" name="New changelist" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_04/.floo" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_04/.flooignore" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_04/.idea/.name" afterPath="" />
@@ -3898,99 +3913,13 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_05/screenshots/list.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_05/screenshots/name.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_05/screenshots/server_list.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/network_game/network_area (newtonis penguin's conflicted copy 2015-02-17).py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/HeadSoccer" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/HeadSoccerServer" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/databases/servers.db" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/fonts/AldotheApache.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/fonts/BOOMBOX.TTF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/fonts/BebasNeue.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/fonts/CT ProLamina.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/fonts/MotionControl-Bold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/fonts/MotionControl-BoldItalic.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/fonts/PixelSplitter-Bold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/fonts/PowerChord.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/fonts/absender1.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/fonts/boombox2.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/images/ORT_staidium_v0.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/images/ORT_staidium_v0.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/images/ORT_staidium_v1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/images/Vacio.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/images/back1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/images/back2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/images/back3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/images/back4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/images/back5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/images/back6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/images/botin.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/images/cabeza1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/images/cabeza2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/images/cabeza3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/images/cabeza4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/images/goal.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/images/goal2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/images/goalA/goal0.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/images/goalA/goal1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/images/goalA/goal2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/images/goalA/goal3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_linux/server_db/opinion.db" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/HeadSoccer.exe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/HeadSoccerServer.exe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/databases/servers.db" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/fonts/AldotheApache.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/fonts/BOOMBOX.TTF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/fonts/BebasNeue.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/fonts/CT ProLamina.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/fonts/MotionControl-Bold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/fonts/MotionControl-BoldItalic.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/fonts/PixelSplitter-Bold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/fonts/PowerChord.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/fonts/absender1.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/fonts/boombox2.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/images/ORT_staidium_v0.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/images/ORT_staidium_v0.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/images/ORT_staidium_v1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/images/Vacio.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/images/back1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/images/back2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/images/back3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/images/back4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/images/back5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/images/back6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/images/botin.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/images/cabeza1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/images/cabeza2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/images/cabeza3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/images/cabeza4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/images/goal.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/images/goal2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/images/goalA/goal0.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/images/goalA/goal1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/images/goalA/goal2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/images/goalA/goal3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../head_soccer_executables/head_soccer05_windows/server_db/opinion.db" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/databases/servers.db" afterPath="$PROJECT_DIR$/databases/servers.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.flooignore" afterPath="$PROJECT_DIR$/.flooignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/data/__init__.py" afterPath="$PROJECT_DIR$/source/data/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/gui/checkExit.py" afterPath="$PROJECT_DIR$/source/gui/checkExit.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/data/config.py" afterPath="$PROJECT_DIR$/source/data/config.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/data/fonts.py" afterPath="$PROJECT_DIR$/source/data/fonts.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/physics/gameV2.py" afterPath="$PROJECT_DIR$/source/physics/gameV2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/initClientDB.py" afterPath="$PROJECT_DIR$/initClientDB.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/database/initDB.py" afterPath="$PROJECT_DIR$/source/database/initDB.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/gui/input.py" afterPath="$PROJECT_DIR$/source/gui/input.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/network_game/network_area.py" afterPath="$PROJECT_DIR$/source/network_game/network_area.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/database/serverQ.py" afterPath="$PROJECT_DIR$/source/database/serverQ.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="head_soccer_06.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -3999,10 +3928,10 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/head_soccer_06$Head_Soccer_Server.coverage" NAME="Head Soccer Server Coverage Results" MODIFIED="1424480297749" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/head_soccer_06$initClientDB.coverage" NAME="initClientDB Coverage Results" MODIFIED="1424480247469" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/head_soccer_06$Head_Soccer.coverage" NAME="Head Soccer Coverage Results" MODIFIED="1424480919496" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/head_soccer_06$main.coverage" NAME="main Coverage Results" MODIFIED="1424206865456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/head_soccer_06$Head_Soccer_Server.coverage" NAME="Head Soccer Server Coverage Results" MODIFIED="1424551153315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/head_soccer_06$initClientDB.coverage" NAME="initClientDB Coverage Results" MODIFIED="1424480247469" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -4036,84 +3965,167 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="network_area.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/network_game/network_area.py">
+      <file leaf-file-name="list_system.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/network_game/list_system.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="4185">
-              <caret line="85" column="48" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="3315" max-vertical-offset="3465">
+              <caret line="221" column="23" selection-start-line="221" selection-start-column="23" selection-end-line="221" selection-end-column="23" />
               <folding>
-                <element signature="e#25#38#0" expanded="true" />
+                <marker date="1424542093000" expanded="true" signature="2769:3261" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="graphicManager.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/gui/graphicManager.py">
+      <file leaf-file-name="server_list.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/network_game/server_list.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="902" max-vertical-offset="3285">
-              <caret line="63" column="30" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="input.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/gui/input.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="5235">
-              <caret line="49" column="26" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config_window.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/source/network_game/ping/config_window.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5105348" vertical-offset="675" max-vertical-offset="1440">
-              <caret line="66" column="23" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="1410">
+              <caret line="20" column="55" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
               <folding>
-                <element signature="e#25#41#0" expanded="true" />
+                <element signature="e#0#13#0" expanded="true" />
+                <marker date="1424550197769" expanded="true" signature="2802:3596" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/data/config.py">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="serverQ.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/database/serverQ.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="583" max-vertical-offset="1200">
-              <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="645" max-vertical-offset="840">
+              <caret line="43" column="46" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
               <folding>
-                <marker date="1424480481075" expanded="true" signature="176:197" placeholder="SELECT * FRO..servers..." />
-                <marker date="1424480481075" expanded="true" signature="438:470" placeholder="INSERT INTO ..." />
-                <marker date="1424480481075" expanded="true" signature="730:787" placeholder="UPDATE serve..." />
-                <marker date="1424480481075" expanded="true" signature="1030:1077" placeholder="DELETE FROM ..." />
-                <marker date="1424480481075" expanded="true" signature="1264:1295" placeholder="UPDATE confi..." />
-                <marker date="1424480481075" expanded="true" signature="1467:1503" placeholder="UPDATE confi..." />
-                <marker date="1424480481075" expanded="true" signature="1687:1737" placeholder="UPDATE confi..." />
-                <marker date="1424480481075" expanded="true" signature="1934:1954" placeholder="SELECT * FRO..config..." />
+                <element signature="e#21#56#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="window.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/gui/window.py">
+      <file leaf-file-name="tourney.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/database/tourney/tourney.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="808" max-vertical-offset="1995">
-              <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="585">
+              <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="game.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/game.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="1830">
+              <caret line="65" column="23" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
+              <folding>
+                <element signature="e#1617#1928#0" expanded="false" />
+                <element signature="e#2303#2417#0" expanded="false" />
+                <element signature="e#2453#2673#0" expanded="false" />
+                <element signature="e#2707#3105#0" expanded="false" />
+                <element signature="e#3162#4295#0" expanded="false" />
+                <element signature="e#4336#4531#0" expanded="false" />
+                <element signature="e#4573#5862#0" expanded="false" />
+                <element signature="e#5896#5926#0" expanded="false" />
+                <element signature="e#5956#6271#0" expanded="false" />
+                <element signature="e#6301#6616#0" expanded="false" />
+                <element signature="e#6658#6681#0" expanded="false" />
+                <element signature="e#6718#7397#0" expanded="false" />
+                <element signature="e#7434#8114#0" expanded="false" />
+                <element signature="e#8149#8312#0" expanded="false" />
+                <element signature="e#8352#8464#0" expanded="false" />
+                <element signature="e#8504#8551#0" expanded="false" />
+                <element signature="e#8593#8725#0" expanded="false" />
+                <element signature="e#8796#9027#0" expanded="false" />
+                <element signature="e#9066#9156#0" expanded="false" />
+                <element signature="e#9192#12930#0" expanded="false" />
+                <element signature="e#12974#13056#0" expanded="false" />
+                <element signature="e#13089#13717#0" expanded="false" />
+                <element signature="e#13764#14592#0" expanded="false" />
+                <element signature="e#14670#14924#0" expanded="false" />
+                <element signature="e#14974#15223#0" expanded="false" />
+                <element signature="e#15265#15321#0" expanded="false" />
+                <element signature="e#15363#15419#0" expanded="false" />
+                <element signature="e#15456#15500#0" expanded="false" />
+                <element signature="e#15537#15581#0" expanded="false" />
+                <element signature="e#15618#15661#0" expanded="false" />
+                <element signature="e#15713#15780#0" expanded="false" />
+                <element signature="e#15835#15918#0" expanded="false" />
+                <element signature="e#15967#16018#0" expanded="false" />
+                <element signature="e#16101#16337#0" expanded="false" />
+                <element signature="e#16429#16701#0" expanded="false" />
+                <element signature="e#16754#16823#0" expanded="false" />
+                <element signature="e#16866#16918#0" expanded="false" />
+                <element signature="e#16959#17008#0" expanded="false" />
+                <element signature="e#17049#17101#0" expanded="false" />
+                <element signature="e#17141#17193#0" expanded="false" />
+                <element signature="e#17235#17288#0" expanded="false" />
+                <element signature="e#17328#17378#0" expanded="false" />
+                <element signature="e#17426#17494#0" expanded="false" />
+                <element signature="e#17538#17587#0" expanded="false" />
+                <element signature="e#17640#17711#0" expanded="false" />
+                <element signature="e#17761#17842#0" expanded="false" />
+                <element signature="e#17883#17934#0" expanded="false" />
+                <element signature="e#17974#18024#0" expanded="false" />
+                <element signature="e#18087#18185#0" expanded="false" />
+                <element signature="e#18233#18284#0" expanded="false" />
+                <element signature="e#18331#18437#0" expanded="false" />
+                <element signature="e#18529#18765#0" expanded="false" />
+                <element signature="e#18799#18831#0" expanded="false" />
+                <element signature="e#18868#18948#0" expanded="false" />
+                <element signature="e#18977#19098#0" expanded="false" />
+                <element signature="e#19129#19252#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/server.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3885" max-vertical-offset="4035">
+              <caret line="271" column="35" selection-start-line="271" selection-start-column="35" selection-end-line="271" selection-end-column="35" />
+              <folding>
+                <marker date="1424549613089" expanded="true" signature="9318:10325" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="league.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/database/tourney/league.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="300">
+              <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mysql.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/database/mysql.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.1762402" vertical-offset="0" max-vertical-offset="766">
+              <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+              <folding>
+                <element signature="e#22#35#0" expanded="true" />
+                <marker date="1424550623589" expanded="true" signature="480:516" placeholder="SELECT * FRO..Servers..." />
+                <marker date="1424550623589" expanded="true" signature="480:536" placeholder="SELECT * FRO..Servers..." />
+                <marker date="1424550623589" expanded="true" signature="480:543" placeholder="SELECT * FRO..Servers..." />
+                <marker date="1424550623589" expanded="true" signature="616:703" placeholder="INSERT INTO ..." />
+                <marker date="1424550623589" expanded="true" signature="917:978" placeholder="DELETE FROM ..." />
+                <marker date="1424550623589" expanded="true" signature="1065:1086" placeholder="SELECT * FRO..Servers..." />
+                <marker date="1424550623589" expanded="true" signature="1381:1461" placeholder="UPDATE Serve..." />
+                <marker date="1424550623589" expanded="true" signature="1381:1470" placeholder="UPDATE Serve..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rects.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/gui/rects.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="225">
+              <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -4132,8 +4144,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/source/gui/graphicManager.py" />
         <option value="$PROJECT_DIR$/source/physics/gameV2.py" />
         <option value="$PROJECT_DIR$/source/network_game/network_area.py" />
         <option value="$PROJECT_DIR$/source/gui/checkExit.py" />
@@ -4145,6 +4155,15 @@
         <option value="$PROJECT_DIR$/source/data/config.py" />
         <option value="$PROJECT_DIR$/source/database/serverQ.py" />
         <option value="$PROJECT_DIR$/source/network_game/ping/config_window.py" />
+        <option value="$PROJECT_DIR$/source/network_game/list_system.py" />
+        <option value="$PROJECT_DIR$/source/network_game/server_list.py" />
+        <option value="$PROJECT_DIR$/source/gui/rects.py" />
+        <option value="$PROJECT_DIR$/source/gui/graphicManager.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/server/server.py" />
+        <option value="$PROJECT_DIR$/server/database/tourney/tourney.py" />
+        <option value="$PROJECT_DIR$/server/database/tourney/league.py" />
+        <option value="$PROJECT_DIR$/server/database/mysql.py" />
       </list>
     </option>
   </component>
@@ -4152,8 +4171,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1440" />
-    <option name="height" value="874" />
+    <option name="x" value="-6" />
+    <option name="y" value="3" />
+    <option name="width" value="1932" />
+    <option name="height" value="1083" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -4220,11 +4241,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gui" />
+              <option name="myItemId" value="server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -4238,7 +4255,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
+              <option name="myItemId" value="server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -4256,11 +4273,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
+              <option name="myItemId" value="server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tourney" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -4299,7 +4320,7 @@
       <console-settings />
     </option>
   </component>
-  <component name="RunManager" selected="Python.Head Soccer">
+  <component name="RunManager" selected="Python.Head Soccer Server">
     <configuration default="false" name="initClientDB" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -4405,15 +4426,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="com.intellij.database.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
-      <option name="VM_PARAMETERS" value="" />
-      <option name="USER_CFG_CLASS" />
-      <option name="CONTEXT_PROVIDER" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -4435,6 +4447,9 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
     <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
@@ -4472,20 +4487,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <method />
-    </configuration>
-    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
       <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="head_soccer_06" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="ADDITIONAL_ARGS" value="" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Attests">
@@ -4506,6 +4513,20 @@
       <option name="TEST_TYPE" value="TEST_SCRIPT" />
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="head_soccer_06" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
       <method />
     </configuration>
     <configuration default="false" name="Head Soccer" type="PythonConfigurationType" factoryName="Python">
@@ -4566,37 +4587,46 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="b5a80ea8-b5da-4fa8-b2a5-7d534b5a2026" name="Default" comment="" />
+      <changelist id="fffa1d57-4302-4aa2-9d3b-3a09858ccd07" name="New changelist" comment="" />
       <created>1424144456529</created>
       <option name="number" value="Default" />
       <updated>1424144456529</updated>
     </task>
+    <task id="LOCAL-00001" summary="Daily update">
+      <created>1424481286225</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1424481286225</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="874" extended-state="6" />
+    <frame x="-6" y="3" width="1932" height="1083" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32806325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16473073" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1627907" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Floobits Chat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16337286" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Floobits Chat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16309887" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16523606" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16458334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15151516" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15086646" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -4642,64 +4672,116 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/source/physics/gameV2.py">
+    <entry file="file://$PROJECT_DIR$/server/database/tourney/tourney.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="12496" max-vertical-offset="17265">
-          <caret line="1206" column="19" selection-start-line="1206" selection-start-column="19" selection-end-line="1206" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="585">
+          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="1830">
+          <caret line="65" column="23" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
           <folding>
-            <element signature="e#484#533#0" expanded="true" />
-            <element signature="e#2299#2514#0" expanded="false" />
-            <element signature="e#2299#2411#1" expanded="false" />
-            <element signature="e#2537#2756#0" expanded="false" />
-            <element signature="e#2537#2725#1" expanded="false" />
-            <element signature="e#2818#3466#0" expanded="false" />
-            <element signature="e#2818#3011#1" expanded="false" />
-            <element signature="e#3541#6229#0" expanded="false" />
-            <element signature="e#3648#4481#0" expanded="false" />
-            <element signature="e#3648#4031#1" expanded="false" />
-            <element signature="e#4526#4695#0" expanded="false" />
-            <element signature="e#4526#4593#1" expanded="false" />
-            <element signature="e#4724#4829#0" expanded="false" />
-            <element signature="e#4724#4790#1" expanded="false" />
-            <element signature="e#4859#4954#0" expanded="false" />
-            <element signature="e#4859#4912#1" expanded="false" />
-            <element signature="e#4985#5081#0" expanded="false" />
-            <element signature="e#4985#5039#1" expanded="false" />
-            <element signature="e#5117#5830#0" expanded="false" />
-            <element signature="e#5862#6227#0" expanded="false" />
-            <element signature="e#6291#9190#0" expanded="false" />
-            <element signature="e#6350#7865#0" expanded="false" />
-            <element signature="e#6350#6711#1" expanded="false" />
-            <element signature="e#7907#8631#0" expanded="false" />
-            <element signature="e#8667#8792#0" expanded="false" />
-            <element signature="e#8837#8934#0" expanded="false" />
-            <element signature="e#8966#9097#0" expanded="false" />
-            <element signature="e#9129#9188#0" expanded="false" />
-            <element signature="e#9260#12020#0" expanded="false" />
-            <element signature="e#9295#9634#0" expanded="false" />
-            <element signature="e#9295#9386#1" expanded="false" />
-            <element signature="e#9670#10702#0" expanded="false" />
-            <element signature="e#10747#10898#0" expanded="false" />
-            <element signature="e#10968#11532#0" expanded="false" />
-            <element signature="e#10968#11295#1" expanded="false" />
-            <element signature="e#11567#11749#0" expanded="false" />
-            <element signature="e#11781#12018#0" expanded="false" />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
+            <element signature="e#1617#1928#0" expanded="false" />
+            <element signature="e#2303#2417#0" expanded="false" />
+            <element signature="e#2453#2673#0" expanded="false" />
+            <element signature="e#2707#3105#0" expanded="false" />
+            <element signature="e#3162#4295#0" expanded="false" />
+            <element signature="e#4336#4531#0" expanded="false" />
+            <element signature="e#4573#5862#0" expanded="false" />
+            <element signature="e#5896#5926#0" expanded="false" />
+            <element signature="e#5956#6271#0" expanded="false" />
+            <element signature="e#6301#6616#0" expanded="false" />
+            <element signature="e#6658#6681#0" expanded="false" />
+            <element signature="e#6718#7397#0" expanded="false" />
+            <element signature="e#7434#8114#0" expanded="false" />
+            <element signature="e#8149#8312#0" expanded="false" />
+            <element signature="e#8352#8464#0" expanded="false" />
+            <element signature="e#8504#8551#0" expanded="false" />
+            <element signature="e#8593#8725#0" expanded="false" />
+            <element signature="e#8796#9027#0" expanded="false" />
+            <element signature="e#9066#9156#0" expanded="false" />
+            <element signature="e#9192#12930#0" expanded="false" />
+            <element signature="e#12974#13056#0" expanded="false" />
+            <element signature="e#13089#13717#0" expanded="false" />
+            <element signature="e#13764#14592#0" expanded="false" />
+            <element signature="e#14670#14924#0" expanded="false" />
+            <element signature="e#14974#15223#0" expanded="false" />
+            <element signature="e#15265#15321#0" expanded="false" />
+            <element signature="e#15363#15419#0" expanded="false" />
+            <element signature="e#15456#15500#0" expanded="false" />
+            <element signature="e#15537#15581#0" expanded="false" />
+            <element signature="e#15618#15661#0" expanded="false" />
+            <element signature="e#15713#15780#0" expanded="false" />
+            <element signature="e#15835#15918#0" expanded="false" />
+            <element signature="e#15967#16018#0" expanded="false" />
+            <element signature="e#16101#16337#0" expanded="false" />
+            <element signature="e#16429#16701#0" expanded="false" />
+            <element signature="e#16754#16823#0" expanded="false" />
+            <element signature="e#16866#16918#0" expanded="false" />
+            <element signature="e#16959#17008#0" expanded="false" />
+            <element signature="e#17049#17101#0" expanded="false" />
+            <element signature="e#17141#17193#0" expanded="false" />
+            <element signature="e#17235#17288#0" expanded="false" />
+            <element signature="e#17328#17378#0" expanded="false" />
+            <element signature="e#17426#17494#0" expanded="false" />
+            <element signature="e#17538#17587#0" expanded="false" />
+            <element signature="e#17640#17711#0" expanded="false" />
+            <element signature="e#17761#17842#0" expanded="false" />
+            <element signature="e#17883#17934#0" expanded="false" />
+            <element signature="e#17974#18024#0" expanded="false" />
+            <element signature="e#18087#18185#0" expanded="false" />
+            <element signature="e#18233#18284#0" expanded="false" />
+            <element signature="e#18331#18437#0" expanded="false" />
+            <element signature="e#18529#18765#0" expanded="false" />
+            <element signature="e#18799#18831#0" expanded="false" />
+            <element signature="e#18868#18948#0" expanded="false" />
+            <element signature="e#18977#19098#0" expanded="false" />
+            <element signature="e#19129#19252#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3735" max-vertical-offset="3885">
+          <caret line="259" column="35" selection-start-line="259" selection-start-column="35" selection-end-line="259" selection-end-column="35" />
+          <folding>
+            <marker date="1424549613089" expanded="true" signature="9318:10325" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/database/tourney/league.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gui/rects.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="225">
+          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/network_game/list_system.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3210">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1424542093000" expanded="true" signature="2769:3261" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -4708,60 +4790,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="4185">
           <caret line="85" column="48" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="48" />
-          <folding>
-            <element signature="e#25#38#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/gui/graphicManager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="902" max-vertical-offset="3285">
-          <caret line="111" column="47" selection-start-line="111" selection-start-column="38" selection-end-line="111" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/network_game/ping/config_window.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="733" max-vertical-offset="1365">
-          <caret line="76" column="66" selection-start-line="76" selection-start-column="66" selection-end-line="76" selection-end-column="66" />
-          <folding>
-            <element signature="e#42#67#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/database/serverQ.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1200">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3285">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1424480481075" expanded="true" signature="176:197" placeholder="SELECT * FRO..servers..." />
-            <marker date="1424480481075" expanded="true" signature="438:470" placeholder="INSERT INTO ..." />
-            <marker date="1424480481075" expanded="true" signature="730:787" placeholder="UPDATE serve..." />
-            <marker date="1424480481075" expanded="true" signature="1030:1077" placeholder="DELETE FROM ..." />
-            <marker date="1424480481075" expanded="true" signature="1264:1295" placeholder="UPDATE confi..." />
-            <marker date="1424480481075" expanded="true" signature="1467:1503" placeholder="UPDATE confi..." />
-            <marker date="1424480481075" expanded="true" signature="1687:1737" placeholder="UPDATE confi..." />
-            <marker date="1424480481075" expanded="true" signature="1934:1954" placeholder="SELECT * FRO..config..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/gui/input.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="5235">
-          <caret line="49" column="26" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/data/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="345">
-          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4769,7 +4804,55 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="808" max-vertical-offset="1995">
           <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/physics/gameV2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="12496" max-vertical-offset="17265">
+          <caret line="1206" column="19" selection-start-line="1206" selection-start-column="19" selection-end-line="1206" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/network_game/network_area.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="4185">
+          <caret line="85" column="48" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gui/graphicManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="902" max-vertical-offset="3285">
+          <caret line="111" column="47" selection-start-line="111" selection-start-column="38" selection-end-line="111" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/database/serverQ.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1200">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gui/input.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="5235">
+          <caret line="49" column="26" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/data/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="345">
+          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gui/window.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="808" max-vertical-offset="1995">
+          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -4777,56 +4860,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="17055">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#484#533#0" expanded="true" />
-            <element signature="e#2299#2514#0" expanded="false" />
-            <element signature="e#2299#2411#1" expanded="false" />
-            <element signature="e#2537#2756#0" expanded="false" />
-            <element signature="e#2537#2725#1" expanded="false" />
-            <element signature="e#2818#3466#0" expanded="false" />
-            <element signature="e#2818#3011#1" expanded="false" />
-            <element signature="e#3541#6229#0" expanded="false" />
-            <element signature="e#3648#4481#0" expanded="false" />
-            <element signature="e#3648#4031#1" expanded="false" />
-            <element signature="e#4526#4695#0" expanded="false" />
-            <element signature="e#4526#4593#1" expanded="false" />
-            <element signature="e#4724#4829#0" expanded="false" />
-            <element signature="e#4724#4790#1" expanded="false" />
-            <element signature="e#4859#4954#0" expanded="false" />
-            <element signature="e#4859#4912#1" expanded="false" />
-            <element signature="e#4985#5081#0" expanded="false" />
-            <element signature="e#4985#5039#1" expanded="false" />
-            <element signature="e#5117#5830#0" expanded="false" />
-            <element signature="e#5862#6227#0" expanded="false" />
-            <element signature="e#6291#9190#0" expanded="false" />
-            <element signature="e#6350#7865#0" expanded="false" />
-            <element signature="e#6350#6711#1" expanded="false" />
-            <element signature="e#7907#8631#0" expanded="false" />
-            <element signature="e#8667#8792#0" expanded="false" />
-            <element signature="e#8837#8934#0" expanded="false" />
-            <element signature="e#8966#9097#0" expanded="false" />
-            <element signature="e#9129#9188#0" expanded="false" />
-            <element signature="e#9260#12020#0" expanded="false" />
-            <element signature="e#9295#9634#0" expanded="false" />
-            <element signature="e#9295#9386#1" expanded="false" />
-            <element signature="e#9670#10702#0" expanded="false" />
-            <element signature="e#10747#10898#0" expanded="false" />
-            <element signature="e#10968#11532#0" expanded="false" />
-            <element signature="e#10968#11295#1" expanded="false" />
-            <element signature="e#11567#11749#0" expanded="false" />
-            <element signature="e#11781#12018#0" expanded="false" />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4834,56 +4867,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="17055">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#484#533#0" expanded="true" />
-            <element signature="e#2299#2514#0" expanded="false" />
-            <element signature="e#2299#2411#1" expanded="false" />
-            <element signature="e#2537#2756#0" expanded="false" />
-            <element signature="e#2537#2725#1" expanded="false" />
-            <element signature="e#2818#3466#0" expanded="false" />
-            <element signature="e#2818#3011#1" expanded="false" />
-            <element signature="e#3541#6229#0" expanded="false" />
-            <element signature="e#3648#4481#0" expanded="false" />
-            <element signature="e#3648#4031#1" expanded="false" />
-            <element signature="e#4526#4695#0" expanded="false" />
-            <element signature="e#4526#4593#1" expanded="false" />
-            <element signature="e#4724#4829#0" expanded="false" />
-            <element signature="e#4724#4790#1" expanded="false" />
-            <element signature="e#4859#4954#0" expanded="false" />
-            <element signature="e#4859#4912#1" expanded="false" />
-            <element signature="e#4985#5081#0" expanded="false" />
-            <element signature="e#4985#5039#1" expanded="false" />
-            <element signature="e#5117#5830#0" expanded="false" />
-            <element signature="e#5862#6227#0" expanded="false" />
-            <element signature="e#6291#9190#0" expanded="false" />
-            <element signature="e#6350#7865#0" expanded="false" />
-            <element signature="e#6350#6711#1" expanded="false" />
-            <element signature="e#7907#8631#0" expanded="false" />
-            <element signature="e#8667#8792#0" expanded="false" />
-            <element signature="e#8837#8934#0" expanded="false" />
-            <element signature="e#8966#9097#0" expanded="false" />
-            <element signature="e#9129#9188#0" expanded="false" />
-            <element signature="e#9260#12020#0" expanded="false" />
-            <element signature="e#9295#9634#0" expanded="false" />
-            <element signature="e#9295#9386#1" expanded="false" />
-            <element signature="e#9670#10702#0" expanded="false" />
-            <element signature="e#10747#10898#0" expanded="false" />
-            <element signature="e#10968#11532#0" expanded="false" />
-            <element signature="e#10968#11295#1" expanded="false" />
-            <element signature="e#11567#11749#0" expanded="false" />
-            <element signature="e#11781#12018#0" expanded="false" />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4891,56 +4874,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="17055">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#484#533#0" expanded="true" />
-            <element signature="e#2299#2514#0" expanded="false" />
-            <element signature="e#2299#2411#1" expanded="false" />
-            <element signature="e#2537#2756#0" expanded="false" />
-            <element signature="e#2537#2725#1" expanded="false" />
-            <element signature="e#2818#3466#0" expanded="false" />
-            <element signature="e#2818#3011#1" expanded="false" />
-            <element signature="e#3541#6229#0" expanded="false" />
-            <element signature="e#3648#4481#0" expanded="false" />
-            <element signature="e#3648#4031#1" expanded="false" />
-            <element signature="e#4526#4695#0" expanded="false" />
-            <element signature="e#4526#4593#1" expanded="false" />
-            <element signature="e#4724#4829#0" expanded="false" />
-            <element signature="e#4724#4790#1" expanded="false" />
-            <element signature="e#4859#4954#0" expanded="false" />
-            <element signature="e#4859#4912#1" expanded="false" />
-            <element signature="e#4985#5081#0" expanded="false" />
-            <element signature="e#4985#5039#1" expanded="false" />
-            <element signature="e#5117#5830#0" expanded="false" />
-            <element signature="e#5862#6227#0" expanded="false" />
-            <element signature="e#6291#9190#0" expanded="false" />
-            <element signature="e#6350#7865#0" expanded="false" />
-            <element signature="e#6350#6711#1" expanded="false" />
-            <element signature="e#7907#8631#0" expanded="false" />
-            <element signature="e#8667#8792#0" expanded="false" />
-            <element signature="e#8837#8934#0" expanded="false" />
-            <element signature="e#8966#9097#0" expanded="false" />
-            <element signature="e#9129#9188#0" expanded="false" />
-            <element signature="e#9260#12020#0" expanded="false" />
-            <element signature="e#9295#9634#0" expanded="false" />
-            <element signature="e#9295#9386#1" expanded="false" />
-            <element signature="e#9670#10702#0" expanded="false" />
-            <element signature="e#10747#10898#0" expanded="false" />
-            <element signature="e#10968#11532#0" expanded="false" />
-            <element signature="e#10968#11295#1" expanded="false" />
-            <element signature="e#11567#11749#0" expanded="false" />
-            <element signature="e#11781#12018#0" expanded="false" />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4948,56 +4881,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="12325">
           <caret line="154" column="26" selection-start-line="154" selection-start-column="26" selection-end-line="154" selection-end-column="26" />
-          <folding>
-            <element signature="e#484#533#0" expanded="true" />
-            <element signature="e#2299#2514#0" expanded="false" />
-            <element signature="e#2299#2411#1" expanded="false" />
-            <element signature="e#2537#2756#0" expanded="false" />
-            <element signature="e#2537#2725#1" expanded="false" />
-            <element signature="e#2818#3466#0" expanded="false" />
-            <element signature="e#2818#3011#1" expanded="false" />
-            <element signature="e#3541#6229#0" expanded="false" />
-            <element signature="e#3648#4481#0" expanded="false" />
-            <element signature="e#3648#4031#1" expanded="false" />
-            <element signature="e#4526#4695#0" expanded="false" />
-            <element signature="e#4526#4593#1" expanded="false" />
-            <element signature="e#4724#4829#0" expanded="false" />
-            <element signature="e#4724#4790#1" expanded="false" />
-            <element signature="e#4859#4954#0" expanded="false" />
-            <element signature="e#4859#4912#1" expanded="false" />
-            <element signature="e#4985#5081#0" expanded="false" />
-            <element signature="e#4985#5039#1" expanded="false" />
-            <element signature="e#5117#5830#0" expanded="false" />
-            <element signature="e#5862#6227#0" expanded="false" />
-            <element signature="e#6291#9190#0" expanded="false" />
-            <element signature="e#6350#7865#0" expanded="false" />
-            <element signature="e#6350#6711#1" expanded="false" />
-            <element signature="e#7907#8631#0" expanded="false" />
-            <element signature="e#8667#8792#0" expanded="false" />
-            <element signature="e#8837#8934#0" expanded="false" />
-            <element signature="e#8966#9097#0" expanded="false" />
-            <element signature="e#9129#9188#0" expanded="false" />
-            <element signature="e#9260#12020#0" expanded="false" />
-            <element signature="e#9295#9634#0" expanded="false" />
-            <element signature="e#9295#9386#1" expanded="false" />
-            <element signature="e#9670#10702#0" expanded="false" />
-            <element signature="e#10747#10898#0" expanded="false" />
-            <element signature="e#10968#11532#0" expanded="false" />
-            <element signature="e#10968#11295#1" expanded="false" />
-            <element signature="e#11567#11749#0" expanded="false" />
-            <element signature="e#11781#12018#0" expanded="false" />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -5026,56 +4909,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12325">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#484#533#0" expanded="true" />
-            <element signature="e#2299#2514#0" expanded="false" />
-            <element signature="e#2299#2411#1" expanded="false" />
-            <element signature="e#2537#2756#0" expanded="false" />
-            <element signature="e#2537#2725#1" expanded="false" />
-            <element signature="e#2818#3466#0" expanded="false" />
-            <element signature="e#2818#3011#1" expanded="false" />
-            <element signature="e#3541#6229#0" expanded="false" />
-            <element signature="e#3648#4481#0" expanded="false" />
-            <element signature="e#3648#4031#1" expanded="false" />
-            <element signature="e#4526#4695#0" expanded="false" />
-            <element signature="e#4526#4593#1" expanded="false" />
-            <element signature="e#4724#4829#0" expanded="false" />
-            <element signature="e#4724#4790#1" expanded="false" />
-            <element signature="e#4859#4954#0" expanded="false" />
-            <element signature="e#4859#4912#1" expanded="false" />
-            <element signature="e#4985#5081#0" expanded="false" />
-            <element signature="e#4985#5039#1" expanded="false" />
-            <element signature="e#5117#5830#0" expanded="false" />
-            <element signature="e#5862#6227#0" expanded="false" />
-            <element signature="e#6291#9190#0" expanded="false" />
-            <element signature="e#6350#7865#0" expanded="false" />
-            <element signature="e#6350#6711#1" expanded="false" />
-            <element signature="e#7907#8631#0" expanded="false" />
-            <element signature="e#8667#8792#0" expanded="false" />
-            <element signature="e#8837#8934#0" expanded="false" />
-            <element signature="e#8966#9097#0" expanded="false" />
-            <element signature="e#9129#9188#0" expanded="false" />
-            <element signature="e#9260#12020#0" expanded="false" />
-            <element signature="e#9295#9634#0" expanded="false" />
-            <element signature="e#9295#9386#1" expanded="false" />
-            <element signature="e#9670#10702#0" expanded="false" />
-            <element signature="e#10747#10898#0" expanded="false" />
-            <element signature="e#10968#11532#0" expanded="false" />
-            <element signature="e#10968#11295#1" expanded="false" />
-            <element signature="e#11567#11749#0" expanded="false" />
-            <element signature="e#11781#12018#0" expanded="false" />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -5118,64 +4951,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="12496" max-vertical-offset="17265">
           <caret line="1206" column="19" selection-start-line="1206" selection-start-column="19" selection-end-line="1206" selection-end-column="19" />
-          <folding>
-            <element signature="e#484#533#0" expanded="true" />
-            <element signature="e#2299#2514#0" expanded="false" />
-            <element signature="e#2299#2411#1" expanded="false" />
-            <element signature="e#2537#2756#0" expanded="false" />
-            <element signature="e#2537#2725#1" expanded="false" />
-            <element signature="e#2818#3466#0" expanded="false" />
-            <element signature="e#2818#3011#1" expanded="false" />
-            <element signature="e#3541#6229#0" expanded="false" />
-            <element signature="e#3648#4481#0" expanded="false" />
-            <element signature="e#3648#4031#1" expanded="false" />
-            <element signature="e#4526#4695#0" expanded="false" />
-            <element signature="e#4526#4593#1" expanded="false" />
-            <element signature="e#4724#4829#0" expanded="false" />
-            <element signature="e#4724#4790#1" expanded="false" />
-            <element signature="e#4859#4954#0" expanded="false" />
-            <element signature="e#4859#4912#1" expanded="false" />
-            <element signature="e#4985#5081#0" expanded="false" />
-            <element signature="e#4985#5039#1" expanded="false" />
-            <element signature="e#5117#5830#0" expanded="false" />
-            <element signature="e#5862#6227#0" expanded="false" />
-            <element signature="e#6291#9190#0" expanded="false" />
-            <element signature="e#6350#7865#0" expanded="false" />
-            <element signature="e#6350#6711#1" expanded="false" />
-            <element signature="e#7907#8631#0" expanded="false" />
-            <element signature="e#8667#8792#0" expanded="false" />
-            <element signature="e#8837#8934#0" expanded="false" />
-            <element signature="e#8966#9097#0" expanded="false" />
-            <element signature="e#9129#9188#0" expanded="false" />
-            <element signature="e#9260#12020#0" expanded="false" />
-            <element signature="e#9295#9634#0" expanded="false" />
-            <element signature="e#9295#9386#1" expanded="false" />
-            <element signature="e#9670#10702#0" expanded="false" />
-            <element signature="e#10747#10898#0" expanded="false" />
-            <element signature="e#10968#11532#0" expanded="false" />
-            <element signature="e#10968#11295#1" expanded="false" />
-            <element signature="e#11567#11749#0" expanded="false" />
-            <element signature="e#11781#12018#0" expanded="false" />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1424475355146" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/gui/window.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="808" max-vertical-offset="1995">
-          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -5183,7 +4958,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.74380165" vertical-offset="0" max-vertical-offset="605">
           <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -5191,7 +4965,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.024793388" vertical-offset="0" max-vertical-offset="605">
           <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -5199,7 +4972,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5591572" vertical-offset="0" max-vertical-offset="1200">
           <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -5207,59 +4979,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
           <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/network_game/network_area.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="925" max-vertical-offset="4185">
-          <caret line="85" column="48" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="48" />
-          <folding>
-            <element signature="e#25#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/gui/input.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="5235">
-          <caret line="49" column="26" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://db-console:/862cf180/bb623f38-f176-4b16-bc51-a03e54262c3a/">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23356402" vertical-offset="0" max-vertical-offset="578">
-          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/862cf180/bb623f38-f176-4b16-bc51-a03e54262c3a/..servers">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/862cf180/bb623f38-f176-4b16-bc51-a03e54262c3a/..config">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -5267,39 +4986,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.54635763" vertical-offset="0" max-vertical-offset="604">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <marker date="1424480236329" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..servers..." />
-            <marker date="1424480236329" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1424480236329" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1424480236329" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..SERVERS..." />
-            <marker date="1424480236329" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..config..." />
-            <marker date="1424480236329" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/gui/graphicManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="902" max-vertical-offset="3285">
-          <caret line="63" column="30" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/database/serverQ.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="583" max-vertical-offset="1200">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding>
-            <marker date="1424480481075" expanded="true" signature="176:197" placeholder="SELECT * FRO..servers..." />
-            <marker date="1424480481075" expanded="true" signature="438:470" placeholder="INSERT INTO ..." />
-            <marker date="1424480481075" expanded="true" signature="730:787" placeholder="UPDATE serve..." />
-            <marker date="1424480481075" expanded="true" signature="1030:1077" placeholder="DELETE FROM ..." />
-            <marker date="1424480481075" expanded="true" signature="1264:1295" placeholder="UPDATE confi..." />
-            <marker date="1424480481075" expanded="true" signature="1467:1503" placeholder="UPDATE confi..." />
-            <marker date="1424480481075" expanded="true" signature="1687:1737" placeholder="UPDATE confi..." />
-            <marker date="1424480481075" expanded="true" signature="1934:1954" placeholder="SELECT * FRO..config..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -5307,24 +4993,195 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
           <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gui/input.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1833689" vertical-offset="90" max-vertical-offset="5235">
+          <caret line="49" column="26" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/database/serverQ.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.75103736" vertical-offset="583" max-vertical-offset="1200">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/network_game/network_area.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.97244734" vertical-offset="3075" max-vertical-offset="4185">
+          <caret line="245" column="31" selection-start-line="245" selection-start-column="31" selection-end-line="245" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gui/window.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32615894" vertical-offset="808" max-vertical-offset="1995">
+          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/network_game/server_window.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3045">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/network_game/list_system.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3315" max-vertical-offset="3465">
+          <caret line="221" column="23" selection-start-line="221" selection-start-column="23" selection-end-line="221" selection-end-column="23" />
+          <folding>
+            <marker date="1424542093000" expanded="true" signature="2769:3261" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gui/rects.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
+          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/gui/graphicManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.7719297" vertical-offset="643" max-vertical-offset="3300">
+          <caret line="61" column="39" selection-start-line="61" selection-start-column="39" selection-end-line="61" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/network_game/server_list.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1395">
+          <caret line="20" column="55" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <marker date="1424550197769" expanded="true" signature="2802:3596" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="1830">
+          <caret line="65" column="23" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
+          <folding>
+            <element signature="e#1617#1928#0" expanded="false" />
+            <element signature="e#2303#2417#0" expanded="false" />
+            <element signature="e#2453#2673#0" expanded="false" />
+            <element signature="e#2707#3105#0" expanded="false" />
+            <element signature="e#3162#4295#0" expanded="false" />
+            <element signature="e#4336#4531#0" expanded="false" />
+            <element signature="e#4573#5862#0" expanded="false" />
+            <element signature="e#5896#5926#0" expanded="false" />
+            <element signature="e#5956#6271#0" expanded="false" />
+            <element signature="e#6301#6616#0" expanded="false" />
+            <element signature="e#6658#6681#0" expanded="false" />
+            <element signature="e#6718#7397#0" expanded="false" />
+            <element signature="e#7434#8114#0" expanded="false" />
+            <element signature="e#8149#8312#0" expanded="false" />
+            <element signature="e#8352#8464#0" expanded="false" />
+            <element signature="e#8504#8551#0" expanded="false" />
+            <element signature="e#8593#8725#0" expanded="false" />
+            <element signature="e#8796#9027#0" expanded="false" />
+            <element signature="e#9066#9156#0" expanded="false" />
+            <element signature="e#9192#12930#0" expanded="false" />
+            <element signature="e#12974#13056#0" expanded="false" />
+            <element signature="e#13089#13717#0" expanded="false" />
+            <element signature="e#13764#14592#0" expanded="false" />
+            <element signature="e#14670#14924#0" expanded="false" />
+            <element signature="e#14974#15223#0" expanded="false" />
+            <element signature="e#15265#15321#0" expanded="false" />
+            <element signature="e#15363#15419#0" expanded="false" />
+            <element signature="e#15456#15500#0" expanded="false" />
+            <element signature="e#15537#15581#0" expanded="false" />
+            <element signature="e#15618#15661#0" expanded="false" />
+            <element signature="e#15713#15780#0" expanded="false" />
+            <element signature="e#15835#15918#0" expanded="false" />
+            <element signature="e#15967#16018#0" expanded="false" />
+            <element signature="e#16101#16337#0" expanded="false" />
+            <element signature="e#16429#16701#0" expanded="false" />
+            <element signature="e#16754#16823#0" expanded="false" />
+            <element signature="e#16866#16918#0" expanded="false" />
+            <element signature="e#16959#17008#0" expanded="false" />
+            <element signature="e#17049#17101#0" expanded="false" />
+            <element signature="e#17141#17193#0" expanded="false" />
+            <element signature="e#17235#17288#0" expanded="false" />
+            <element signature="e#17328#17378#0" expanded="false" />
+            <element signature="e#17426#17494#0" expanded="false" />
+            <element signature="e#17538#17587#0" expanded="false" />
+            <element signature="e#17640#17711#0" expanded="false" />
+            <element signature="e#17761#17842#0" expanded="false" />
+            <element signature="e#17883#17934#0" expanded="false" />
+            <element signature="e#17974#18024#0" expanded="false" />
+            <element signature="e#18087#18185#0" expanded="false" />
+            <element signature="e#18233#18284#0" expanded="false" />
+            <element signature="e#18331#18437#0" expanded="false" />
+            <element signature="e#18529#18765#0" expanded="false" />
+            <element signature="e#18799#18831#0" expanded="false" />
+            <element signature="e#18868#18948#0" expanded="false" />
+            <element signature="e#18977#19098#0" expanded="false" />
+            <element signature="e#19129#19252#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.024311183" vertical-offset="15" max-vertical-offset="855">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="645" max-vertical-offset="840">
+          <caret line="43" column="46" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
+          <folding>
+            <element signature="e#21#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/database/tourney/tourney.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/network_game/ping/config_window.py">
+    <entry file="file://$PROJECT_DIR$/server/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5105348" vertical-offset="675" max-vertical-offset="1440">
-          <caret line="66" column="23" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3915" max-vertical-offset="4065">
+          <caret line="271" column="35" selection-start-line="271" selection-start-column="35" selection-end-line="271" selection-end-column="35" />
           <folding>
-            <element signature="e#25#41#0" expanded="true" />
+            <marker date="1424549613089" expanded="true" signature="9318:10325" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/database/tourney/league.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="300">
+          <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/database/mysql.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1762402" vertical-offset="0" max-vertical-offset="766">
+          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+          <folding>
+            <element signature="e#22#35#0" expanded="true" />
+            <marker date="1424550623589" expanded="true" signature="480:516" placeholder="SELECT * FRO..Servers..." />
+            <marker date="1424550623589" expanded="true" signature="480:536" placeholder="SELECT * FRO..Servers..." />
+            <marker date="1424550623589" expanded="true" signature="480:543" placeholder="SELECT * FRO..Servers..." />
+            <marker date="1424550623589" expanded="true" signature="616:703" placeholder="INSERT INTO ..." />
+            <marker date="1424550623589" expanded="true" signature="917:978" placeholder="DELETE FROM ..." />
+            <marker date="1424550623589" expanded="true" signature="1065:1086" placeholder="SELECT * FRO..Servers..." />
+            <marker date="1424550623589" expanded="true" signature="1381:1461" placeholder="UPDATE Serve..." />
+            <marker date="1424550623589" expanded="true" signature="1381:1470" placeholder="UPDATE Serve..." />
           </folding>
         </state>
       </provider>

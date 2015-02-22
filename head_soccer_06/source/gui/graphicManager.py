@@ -4,23 +4,26 @@ import pygame
 ############### GraphicMana
 #######################################################################
 #######################     IMPORTS      ##############################
-from source.gui.window_system import WindowSystem                    ##
-from source.gui.checkExit import CheckExit                           ##
-from PodSixNet.Connection import connection, ConnectionListener      ##
+from source.gui.rects import RectManager                         ######
+from source.gui.window_system import WindowSystem                 #####
+from source.gui.checkExit import CheckExit                         ####
+from PodSixNet.Connection import connection, ConnectionListener     ###
 from source.network_game.server_list import ServerListWindow         ##
 from source.network_game.loading_server import LoadingServerWindow   ##
 from source.network_game.disconected import DisconectedWindow        ##
 from source.network_game.room_list import RoomList                   ##
 from source.network_game.network_area import NetworkArea             ##
 from source.network_game.ProfileSettings import ProfileSettings      ##
-from PodSixNet.ClientUDP import ClientUDP                            ##
-from source.data import config                                       ##
+from PodSixNet.ClientUDP import ClientUDP                           ###
+from source.data import config                                     ####
 #######################################################################
 
 
-class GraphicManager(ConnectionListener,WindowSystem): #we are a connection listener as we handle the networking, and a window system because we also deal with windows
+class GraphicManager(ConnectionListener,WindowSystem,RectManager): #we are a connection listener as we handle the networking, and a window system because we also deal with windows
     def __init__(self):
         WindowSystem.__init__(self) #init window system
+        RectManager.__init__(self) #init rect manager
+
         self.stage = None #the stage is none because the match is not being played at start. When we enter a room the None value is changed
         self.mode = "Select server" #the start mode is select server, the client must choose a server
         self.start_pump = False #start_pump must be true if the connection to server is started
@@ -28,7 +31,6 @@ class GraphicManager(ConnectionListener,WindowSystem): #we are a connection list
 
         self.serverDataCopy = dict() #not used
         w,h = pygame.display.get_surface().get_size() #not used
-        self.updateRects = [0,0,w,h] #not used
 
         #### UDP ####
         print "Starting UDP client ..."
@@ -57,9 +59,8 @@ class GraphicManager(ConnectionListener,WindowSystem): #we are a connection list
         for window in self.windows: #for each window
             window.GraphicUpdate(screen) #paint it in the screen
         w,h = pygame.display.get_surface().get_size() # not used
-        self.updateRects = [0,0,w,h] #not used
-        #print self.updateRects
-        pygame.display.update(self.updateRects) #not used
+        self.AddUpdateRect(0,0,900,600)
+        self.ScreenBlit()
     ##### MODES #####
     def StartNetworkGame(self): #if we are ready to display the server list
         self.focused = -1

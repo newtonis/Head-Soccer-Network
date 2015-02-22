@@ -11,6 +11,8 @@ import opinion
 from source.data.images import Heads
 from source.data import config
 import random
+from database.mysql import MySQL
+import time
 
 class ServerChannel(Channel):
     def __init__(self , *args, **kwargs):
@@ -160,9 +162,15 @@ class ServerChannel(Channel):
 class WhiteboardServer(Server):
     channelClass = ServerChannel
     def __init__(self,*args,**kwargs):
+
         Server.__init__(self,*args,**kwargs)
         print "Starting server..."
 
+        self.ip = kwargs["localaddr"][0]
+        self.port = kwargs["localaddr"][1]
+        self.svr_name = raw_input("Server name: ")
+        MySQL.AddServer(self.svr_name,self.ip)
+        MySQL.CheckDeadServers()
         ##### START UDP #####
         self.UDPconnector = ServerUDP(*args,**kwargs)
         self.UDPconnector.SetTarget(self)
@@ -181,6 +189,7 @@ class WhiteboardServer(Server):
         self.commandsThread = threading.Thread(target=self.CommandThreadDef,name="Commands thread")
         self.commandsThread.start()
         self.Add5Rooms()
+        self.last_time_sql_updated = time.time()
 
     ##### UDP DEF #####
     def Network_UDP_data(self,data,addr):
@@ -196,7 +205,7 @@ class WhiteboardServer(Server):
 
     def Add5Rooms(self):
         #self.AddTestingGame("Testing area")
-        for x in range(5):
+        for x in range(1):
             self.AddBasicGame("Friendly pitch "+str(x+1))
     def AddBasicGame(self,name):
         self.gameWorlds[name] = BasicGame(name)
@@ -233,6 +242,9 @@ class WhiteboardServer(Server):
         self.Pump()
         for room in self.gameWorlds.keys():
             self.gameWorlds[room].LogicUpdate()
+        if time.time() - self.last_time_sql_updated > 100:
+            MySQL.UpdateServer(self.ip,self.svr_name)
+            self.last_time_sql_updated = time.time()
     def CommandThreadDef(self):
         while self.play:
             command = raw_input("Command>")

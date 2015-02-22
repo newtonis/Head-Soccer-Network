@@ -18,6 +18,7 @@ class SQLEngine:
             con.query("INSERT INTO Servers (Name,IP,Created) VALUES ('"+name+"','"+ip+"',"+str(time.time())+")")
             return True
         else:
+            self.UpdateServer(ip,name)
             return False
     def RemoveServer(self,ip,name):
         ### Remove server from Servers database by IP
