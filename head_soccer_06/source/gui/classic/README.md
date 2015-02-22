@@ -4,11 +4,11 @@
 # Moving bar #
 
 To use it first import the library
-```
+```python
 from source.gui.bar import Bar
 ```
 Then create a Bar object
-```
+```python
 my_bar = Bar(width,height,bar_size,x,y,bar_color=(0,0,255),bar_background=(255,255,255),border_color=(0,0,0))
 ```
 what is each thing?
@@ -20,14 +20,14 @@ what is each thing?
 
 Then you will need to update the bar according to mouse events (that uses pygame mouse functions so you don't need to give it events), and to draw it in some pygame surface in order to visualize it
 
-```
+```python
 my_bar.LogicUpdate() //update bar according to events, you don't need to give it nothing
 my_bar.GraphicUpdate(surface) //update the bar drawn on the given surface that you need to give
 ```
 
 **How to get the bar position?**
 Access the bar .position property, that has the position relative to bar size
-```
+```python
 my_bar.position
 ```
 * **my_bar.position = 0** if it is the min position
@@ -38,7 +38,7 @@ my_bar.position
 
 **How to set the bar position as an exception?**
 Use the function SetBarPosition, using as parameter the position of the bar
-```
+```python
 my_bar.SetBarPosition(position)
 ```
 the position is the same as the descripted before, relative to bar size
@@ -49,7 +49,7 @@ Imagine that the bar is not on the main screen, is it on a window ant its x and 
 
 So in order to do that you need to call
 
-```
+```python
 my_bar.SetParent(parent)
 ```
 
