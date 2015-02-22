@@ -3,15 +3,15 @@
 
 ## Moving bar ##
 
-### First import the library ###
+First import the library
 ```python
 from source.gui.bar import Bar
 ```
-### Then create a Bar object ###
+Then create a Bar object
 ```python
 my_bar = Bar(width,height,bar_size,x,y,bar_color=(0,0,255),bar_background=(255,255,255),border_color=(0,0,0))
 ```
-#### what is each thing? ####
+what is each thing?
 * **width, height**: the x and y axis dimension of the total bar created
 * **bar_size**: the relative size of the marked bar part, relative to the total bar height, while 1 means the bar height, 0.25 
 * **x,y**: the position of the bar where in the context it is draw
