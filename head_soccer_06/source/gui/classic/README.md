@@ -17,6 +17,7 @@ what is each thing?
 *x,y: the position of the bar where in the context it is draw
 *bar_color, bar_background, border_color, different color configurations of the bar, the have a default
 
+
 Then you will need to update the bar according to mouse events (that uses pygame mouse functions so you don't need to give it events), and to draw it in some pygame surface in order to visualize it
 
 ```
@@ -24,7 +25,7 @@ my_bar.LogicUpdate() //update bar according to events, you don't need to give it
 my_bar.GraphicUpdate(surface) //update the bar drawn on the given surface that you need to give
 ```
 
-How to set the bar position as an exception?
+*How to set the bar position as an exception?*
 Use the function SetBarPosition, using as parameter the position of the bar that is 0 if it is the min position and 1 if it is the max position
 
 ```
