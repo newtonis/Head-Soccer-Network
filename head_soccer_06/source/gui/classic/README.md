@@ -12,10 +12,10 @@ Then create a Bar object
 my_bar = Bar(width,height,bar_size,x,y,bar_color=(0,0,255),bar_background=(255,255,255),border_color=(0,0,0))
 ```
 what is each thing?
-* width, height: the x and y axis dimension of the total bar created
-* bar_size: the relative size of the marked bar part, relative to the total bar height, while 1 means the bar height, 0.25 
-* x,y: the position of the bar where in the context it is draw
-* bar_color, bar_background, border_color, different color configurations of the bar, the have a default
+* **width, height**: the x and y axis dimension of the total bar created
+* **bar_size**: the relative size of the marked bar part, relative to the total bar height, while 1 means the bar height, 0.25 
+* **x,y**: the position of the bar where in the context it is draw
+* **bar_color, bar_background, border_color**:, different color configurations of the bar, the have a default
 
 
 Then you will need to update the bar according to mouse events (that uses pygame mouse functions so you don't need to give it events), and to draw it in some pygame surface in order to visualize it
@@ -30,10 +30,10 @@ Access the bar .position property, that has the position relative to bar size
 ```
 my_bar.position
 ```
-* my_bar.position = 0 if it is the min position
-* my_bar.position = 1 if it is the max position
-* my_bar.position = 0.25 if it is the quarter of the range of positions
-* my_bar.position = 0.75 if it is three quarters of the range of positions
+* **my_bar.position = 0** if it is the min position
+* **my_bar.position = 1** if it is the max position
+* **my_bar.position = 0.25** if it is the quarter of the range of positions
+* **my_bar.position = 0.75** if it is three quarters of the range of positions
 * and so on
 
 **How to set the bar position as an exception?**
