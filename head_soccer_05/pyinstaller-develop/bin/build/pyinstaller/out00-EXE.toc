@@ -1,9 +1,0 @@
-('/home/newtonis/Dropbox/Proyectos2015/HeadSoccer/head_soccer_05/pyinstaller-develop/bin/dist/pyinstaller',
- True,
- False,
- None,
- None,
- [],
- None,
- False,
- 1423763898)

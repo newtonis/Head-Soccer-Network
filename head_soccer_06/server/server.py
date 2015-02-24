@@ -77,7 +77,6 @@ class ServerChannel(Channel):
             serverQ.AddOpinion(self.ip,self.opinion["id"],data["option"])
         self.SendRequestName()
     def Network_send_name(self,data):
-        print "Player ",self.GetID(),"is now named '"+str(data["name"])+"'"
         allowed_name = True
         error = ""
         for x in self._server.clients.keys():
@@ -125,8 +124,17 @@ class ServerChannel(Channel):
         self.RoomDef(self,"keys",data)
     def Network_update_pos(self,data):
         self.RoomDef(self,"update_pos",data)
+    def Network_send_chat(self,data):
+        if self.RoomDef:
+            self.RoomDef(self,"chat",{"From":self.name,"Message":data["message"]})
     def Network_bc(self,data):
         self.RoomDef(self,"bc",data)
+    def Network_check_login(self,data):
+        check = serverQ.CheckLogin(data["username"],data["password"])
+        if check["Works"]:
+            self.Send({"action":"confirm_login","pass":"DT"})
+        else:
+            self.Send({"action":"confirm_login","pass":"error","error":check["Error"]})
     def SetRoomDef(self,func):
         print "room def set"
         self.RoomDef = func
@@ -168,7 +176,7 @@ class WhiteboardServer(Server):
 
         self.ip = kwargs["localaddr"][0]
         self.port = kwargs["localaddr"][1]
-        self.svr_name = raw_input("Server name: ")
+        self.svr_name = "localhost"#raw_input("Server name: ")
         MySQL.AddServer(self.svr_name,self.ip)
         MySQL.CheckDeadServers()
         ##### START UDP #####

@@ -54,6 +54,7 @@ class Game:
 
         self.data_to_update = dict()
         self.position_of_update = dict()
+        self.chats = []
     def JoinPlayer(self,player):
         player.SetRoomDef(self.PlayerData)
         self.spectators[player.id] = player
@@ -104,6 +105,9 @@ class Game:
         elif type == "update_pos":
             self.data_to_update[data["player id"]] = {"positions":data["positions array"],"linearVelocity":data["lv array"]}
             self.position_of_update[data["player id"]] = 0
+        elif type == "chat":
+            self.chats.append(data)
+            self.SendToAll({"action":"sa","type":"NewChat","from":data["From"],"message":data["Message"]})
     def UpdateBP(self,pos,vel):
         if self.gameEngine.elements.has_key(self.ballID):
             self.gameEngine.elements[self.ballID].body.position = pos

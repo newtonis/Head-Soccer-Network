@@ -1,4 +1,0 @@
-UDP should warn when sending big packets?
-Make clients' timeout arguments be passed in the relevant methods instead of during construction?
-Enryption
-NAT punchthrough

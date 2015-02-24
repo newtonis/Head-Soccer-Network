@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2713804189">
+  <component name="DataSourceManagerImpl" format="xml" hash="4281252140">
     <data-source source="LOCAL" name="SQLite -" uuid="bb623f38-f176-4b16-bc51-a03e54262c3a">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/databases/servers.db</jdbc-url>
       <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="server" uuid="3ce9bd20-1d3f-42b6-a80c-e6f7d7582cb3">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\Dylan\floobits\share\newtonis\head_soccer_06\server_db\server.db</jdbc-url>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/xerial-sqlite-license.txt</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/sqlite-jdbc-3.7.6.3-20110609.081603-3.jar</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>

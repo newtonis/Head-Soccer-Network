@@ -112,13 +112,14 @@ class ServerWindow(Window):
         rejectButton.x = self.width/4 - rejectButton.imageA.get_size()[0]/2
         self.AddElement(rejectButton,"Reject")
     def ExtraLogicUpdate(self):
+        keys = pygame.key.get_pressed()
         if self.status == "accept-reject":
-            if self.references["Accept"].pressed:
+            if self.references["Accept"].pressed or keys[pygame.K_RETURN]:
                 self.Play()
-            elif self.references["Reject"].pressed:
+            elif self.references["Reject"].pressed or keys[pygame.K_ESCAPE]:
                 self.Quit()
         elif self.status == "reject":
-            if self.references["Reject"].pressed:
+            if self.references["Reject"].pressed or keys[pygame.K_ESCAPE]:
                 self.Quit()
     def Quit(self):
         self.parent.locked = False

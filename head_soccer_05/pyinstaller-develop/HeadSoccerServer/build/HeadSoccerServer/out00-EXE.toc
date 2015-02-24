@@ -1,9 +1,0 @@
-('C:\\Users\\Dylan\\Dropbox\\Proyectos2015\\HeadSoccer\\head_soccer_05\\pyinstaller-develop\\HeadSoccerServer\\dist\\HeadSoccerServer.exe',
- True,
- False,
- None,
- None,
- [],
- None,
- False,
- 1423719730L)

@@ -33,6 +33,9 @@ class SQLEngine:
             servers.append({"Name":data[0],"IP":data[1],"Created":data[2]})
         return servers
     def UpdateServer(self,ip,name):
-        con.query("UPDATE Servers SET Created="+str(time.time())+" WHERE IP = '"+ip+"' AND Name = '"+name+"'")
+        try:
+            con.query("UPDATE Servers SET Created="+str(time.time())+" WHERE IP = '"+ip+"' AND Name = '"+name+"'")
+        except:
+            pass
 
 MySQL = SQLEngine()

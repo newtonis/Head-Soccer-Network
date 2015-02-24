@@ -12,6 +12,7 @@ from source.network_game.match_final_window import MatchFinalWindow
 from source.network_game.ping.utils import *
 from source.network_game.ping.ping_window import *
 from source.network_game.ping.config_window import ConfigWindow
+from source.network_game.chat import Chat
 import time
 
 
@@ -58,6 +59,8 @@ class NetworkArea(Container):
         self.pingStatus = "normal"
         self.maxSupportedPing = 500
         self.fixedPing = 250
+
+        self.chat = Chat((250,150),(0,255,255),(10,100),self)
     def AddPingNumber(self):
         pingText = Text(fonts.Absender.c20,"       ",(0,0,0))
         pingText.x = self.game.pixelWidth - 20 - pingText.surface.get_size()[0]
@@ -88,6 +91,7 @@ class NetworkArea(Container):
                 self.waiting_for_colition["waiting"] = False
 
         self.game.LogicUpdate()
+        self.chat.LogicUpdate()
 
         if self.SendEvents:
             keys = pygame.key.get_pressed()
@@ -137,7 +141,7 @@ class NetworkArea(Container):
         self.currentPing = time.time()*1000 - self.takeSent
     def GraphicUpdate(self,screen):
         self.game.GraphicUpdate(screen)
-
+        self.chat.GraphicUpdate(screen)
         Container.GraphicUpdate(self,screen)
     def PlayerCollision(self,player_position,player_lv,ball_position,ball_lv):
         pass
@@ -229,6 +233,8 @@ class NetworkArea(Container):
             self.SendEvents = False
             self.parent.DeleteAllWindows()
             self.parent.AddWindowCenteredOnFront(JoinWindow(data["data_join"]),None,"joinWindow")
+        elif data["type"] == "NewChat":
+            self.chat.AddMessage(data["from"],data["message"])
     def NetworkAddElement(self,data):
         element = data["element"]
         self.AddPitchElement(element)

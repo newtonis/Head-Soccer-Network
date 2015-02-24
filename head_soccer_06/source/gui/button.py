@@ -19,6 +19,7 @@ class BUTTON_IMAGES:
         NORMAL, \
         FOCUSED, \
         PRESSED = range(3,6)
+
 def ButtonImage(text,background,type,size=None):
     ###### BUTTON DRAW ######
 
@@ -85,6 +86,7 @@ def ButtonImage(text,background,type,size=None):
         AddBorder(surface,4,(0,0,0))
         surface.blit(textFont,GetCenter(surface,textFont))
         return surface
+
 class Button(Element):
     def __init__(self,imageA,imageB,imageC,position):
         Element.__init__(self,position)

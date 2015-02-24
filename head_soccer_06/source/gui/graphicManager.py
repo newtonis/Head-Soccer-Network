@@ -1,23 +1,25 @@
 __author__ = 'ariel'
 import pygame
 
-############### GraphicMana
-#######################################################################
-#######################     IMPORTS      ##############################
-from source.gui.rects import RectManager                         ######
-from source.gui.window_system import WindowSystem                 #####
-from source.gui.checkExit import CheckExit                         ####
-from PodSixNet.Connection import connection, ConnectionListener     ###
-from source.network_game.server_list import ServerListWindow         ##
-from source.network_game.loading_server import LoadingServerWindow   ##
-from source.network_game.disconected import DisconectedWindow        ##
-from source.network_game.room_list import RoomList                   ##
-from source.network_game.network_area import NetworkArea             ##
-from source.network_game.ProfileSettings import ProfileSettings      ##
-from PodSixNet.ClientUDP import ClientUDP                           ###
-from source.data import config                                     ####
-#######################################################################
+############### GraphicManager ###############
 
+########################################################################
+#######################     IMPORTS      ###############################
+from source.gui.rects import RectManager                         #######
+from source.gui.window_system import WindowSystem                 ######
+from source.gui.checkExit import CheckExit                         #####
+from PodSixNet.Connection import connection, ConnectionListener     ####
+from source.network_game.server_list import ServerListWindow         ###
+from source.network_game.loading_server import LoadingServerWindow   ###
+from source.network_game.disconected import DisconectedWindow        ###
+from source.network_game.room_list import RoomList                   ###
+from source.network_game.network_area import NetworkArea             ###
+from source.network_game.ProfileSettings import ProfileSettings      ###
+from PodSixNet.ClientUDP import ClientUDP                           ####
+from source.data import config                                     #####
+from source.database.session_query import *                       ######
+########################################################################
+########################################################################
 
 class GraphicManager(ConnectionListener,WindowSystem,RectManager): #we are a connection listener as we handle the networking, and a window system because we also deal with windows
     def __init__(self):
@@ -167,6 +169,8 @@ class GraphicManager(ConnectionListener,WindowSystem,RectManager): #we are a con
             self.stageActionDef(data) #handle the data
     def Network_profile_conf_error(self,data): #called when the server tell us that there is an error with the profile configuration
         self.profileSettingsDef(data) #the function that handles that
+    def Network_confirm_login(self,data):
+        self.loginDef(data)
     #### UDP ####
     def Network_UDP_data(self,data): #called when there is new udp data (called from UDPconnection)
         connection.Network(data) #tell the connection to handle that information
@@ -195,6 +199,8 @@ class GraphicManager(ConnectionListener,WindowSystem,RectManager): #we are a con
         self.stageActionDef = func
     def SetProfileSettingsDef(self,func):
         self.profileSettingsDef = func
+    def SetLoginDef(self,func):
+        self.loginDef = func
     def Network(self,data):
         if data["action"] == "rooms_data":
             print "Rooms data received"

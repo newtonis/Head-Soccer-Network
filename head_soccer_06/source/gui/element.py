@@ -7,6 +7,7 @@ class Element:
         self.y = position[1]
         self.enabled = False
         self.fix = False
+        self.no_fix = False
     def SetParent(self,parent):
         self.parent = parent
     def LogicUpdate(self):
@@ -15,7 +16,9 @@ class Element:
         pass
     def GetMouse(self):
         pos = pygame.mouse.get_pos()
-        if not self.fix:
+        if self.no_fix:
+            return pos[0],pos[1]
+        elif not self.fix:
             return pos[0] - self.parent.x , pos[1] - self.parent.y
         else:
             return pos[0] - self.parent.x - self.parent.parent.x , pos[1] - self.parent.y - self.parent.parent.y

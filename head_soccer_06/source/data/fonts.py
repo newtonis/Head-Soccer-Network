@@ -11,12 +11,14 @@ class CTProLamina:
     c22 = LoadFont("CT ProLamina.ttf",22)
     c30 = LoadFont("CT ProLamina.ttf",30)
     c40 = LoadFont("CT ProLamina.ttf",40)
+    array = [c20,c22,c30,c40]
 
 class AldoTheApache:
     c20 = LoadFont("AldotheApache.ttf",20)
     c22 = LoadFont("AldotheApache.ttf",22)
     c30 = LoadFont("AldotheApache.ttf",30)
     c40 = LoadFont("AldotheApache.ttf",40)
+    array = [c20,c22,c30,c40]
 
 class BebasNeue:
     c15 = LoadFont("BebasNeue.ttf",15)
@@ -35,6 +37,7 @@ class PowerChord:
     c22 = LoadFont("PowerChord.ttf",22)
     c30 = LoadFont("PowerChord.ttf",30)
     c40 = LoadFont("PowerChord.ttf",40)
+    array = [c20,c22,c30,c40]
 
 class MotionControl:
     c20 = LoadFont("MotionControl-Bold.ttf",20)
@@ -55,21 +58,29 @@ class PixelSplitter:
 
 class Absender:
     c20 = LoadFont("absender1.ttf",20)
+    c22 = LoadFont("absender1.ttf",22)
     c30 = LoadFont("absender1.ttf",30)
     c40 = LoadFont("absender1.ttf",40)
     c50 = LoadFont("absender1.ttf",50)
     c80 = LoadFont("absender1.ttf",80)
+    array = [c20,c22,c30,c40,c50,c80]
 
 class BoomBox:
     class Original:
         c20 = LoadFont("BOOMBOX.TTF",20)
+        c22 = LoadFont("BOOMBOX.TTF",22)
+        c30 = LoadFont("BOOMBOX.TTF",30)
         c40 = LoadFont("BOOMBOX.TTF",40)
         c50 = LoadFont("BOOMBOX.TTF",50)
         c60 = LoadFont("BOOMBOX.TTF",60)
         c80 = LoadFont("BOOMBOX.TTF",80)
+        array = [c20,c22,c30,c40,c50,c60,c80]
     class NewVersion:
         c20 = LoadFont("boombox2.ttf",20)
+        c22 = LoadFont("boombox2.ttf",22)
+        c30 = LoadFont("boombox2.ttf",30)
         c40 = LoadFont("boombox2.ttf",40)
         c50 = LoadFont("boombox2.ttf",50)
         c60 = LoadFont("boombox2.ttf",60)
         c80 = LoadFont("boombox2.ttf",80)
+        array = [c20,c22,c30,c40,c50,c60,c80]

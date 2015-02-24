@@ -7,11 +7,13 @@ from source.gui.pyperclip import copy,paste
 from source.data.fonts import *
 from pygame.locals import *
 import time
+import copy
 
 global LETTERS,NUMBERS,COMBINATIONS,CAPITAL_LETTERS
 LETTERS = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-NUMBERS = ["1","2","3","4","5","6","7","8","9","0","."]
-COMBINATIONS = ["!","'","#","$","%","&","/","(",")","="]
+NUMBERS = ["1","2","3","4","5","6","7","8","9","0",".","-"]
+NUMBERS_EXCEPTIONS = ["-"]
+COMBINATIONS = ["!","'","#","$","%","&","/","(",")","=","","?"]
 CAPITAL_LETTERS = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 
 class Input(Element):
@@ -47,6 +49,7 @@ class Input(Element):
         self.waiting_time = time.time()
         self.selection = {"Selecting":False,"Mouse pressed":-1,"Start":0,"End":0}
         self.next_input = None
+        self.password = False
     def SetBackgroundColor(self,r,g,b):
         self.background_color = (r,g,b)
         self.GenerateBackground()
@@ -128,7 +131,7 @@ class Input(Element):
         if self.text_data["Locked in"] == "Left" and self.text_data["Difference"] > 0:
             self.text_data["Difference"] -= 1
     def AnalizeWritten(self):
-        global LETTERS,NUMBERS,COMBINATIONS,CAPITAL_LETTERS
+        global LETTERS,NUMBERS,COMBINATIONS,CAPITAL_LETTERS,NUMBERS_EXCEPTIONS
         """  Detectando escritura  """
         written = ""
         keyup = ""
@@ -188,7 +191,12 @@ class Input(Element):
                         if self.special_allowed:
                             self.Write(COMBINATIONS[number])
                     else:
-                        self.Write(written)
+                        is_exception = False
+                        for exc in NUMBERS_EXCEPTIONS:
+                            if exc == written:
+                                is_exception = True
+                        if not is_exception:
+                            self.Write(written)
         """  Analizando si se presiono algun caracter especial como shift,espacio,etc  """
         if written == "space":
             self.Write(" ")
@@ -291,7 +299,14 @@ class Input(Element):
         text_surface = pygame.Surface((self.size[0]-2*self.separation,self.size[1]-rad))
         """  Dibujando texto escrito en el text_surface  """
         text_surface.fill(self.background_color)
-        render = self.font.render(self.text,1,self.font_color)
+        """  Password  """
+        text = copy.copy(self.text)
+        if self.password:
+            text = ""
+            for x in range(len(self.text)):
+                text += "X"
+        """  Generating render  """
+        render = self.font.render(text,1,self.font_color)
         if self.text_data["Locked in"] == "Left":
             difference = self.font.render(self.text[:self.text_data["Difference"]],1,(0,0,0)).get_size()[0]
             text_pos = (-difference,text_surface.get_size()[1]/2-render.get_size()[1]/2)

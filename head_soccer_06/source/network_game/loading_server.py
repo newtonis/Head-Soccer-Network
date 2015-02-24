@@ -6,6 +6,7 @@ from source.gui.loading import LoadingAnimation
 from source.gui.text import Text
 from source.gui.button import *
 from source.gui.input import Input
+from source.network_game.login import Selector
 
 class LoadingServerWindow(Window):
     def __init__(self,name,parent,onlyRooms = False):
@@ -79,10 +80,10 @@ class LoadingServerWindow(Window):
         self.RemoveLoading()
         self.RemoveMSJ()
         self.RemoveQuit()
-        self.mode = "setting-name"
         self.RemoveLoading()
         self.RemoveMSJ()
         self.RemoveQuit()
+        self.mode = "setting-name"
 
         y_act = 30
 
@@ -167,7 +168,8 @@ class LoadingServerWindow(Window):
         elif type == "skip":
             self.SetMSJ("Setting your profile...")
         elif type == "req-name":
-            self.SetNameInput()
+            self.parent.DeleteWindow("Loading")
+            self.parent.AddWindowCenteredOnFront(Selector(self.parent,self),pygame.display.get_surface(),"Login")
         elif type == "error-name":
             self.SetNameInput(data["error"])
     def Send(self,data):

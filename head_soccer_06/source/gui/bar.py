@@ -8,12 +8,11 @@ from source.gui.element import Element
 
 class Bar(Element):
     def __init__(self,width,height,bar_size,x,y,bar_color=(0,0,255),bar_background=(255,255,255),border_color=(0,0,0)):
+        Element.__init__(self,(x,y))
         self.enabled = False
         self.width = width
         self.height = height
         self.bar_size = bar_size
-        self.x = x
-        self.y = y
         self.position = 0
         self.focused = False
         self.pressed = False

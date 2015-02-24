@@ -11,6 +11,7 @@ class WindowSystem:
         self.eventable = -1
         self.locked = False
         self.screen = None
+        self.events = None
     def SetScreen(self,screen):
         self.screen = screen
     def AddWindow(self,window,reference="NoReference"):
@@ -83,6 +84,7 @@ class WindowSystem:
         for window in self.windows:
             window.GraphicUpdate(screen)
     def Event(self,e):
+        self.events = e
         for window in self.windows:
             window.Event(e)
     def DeleteAllWindows(self):
