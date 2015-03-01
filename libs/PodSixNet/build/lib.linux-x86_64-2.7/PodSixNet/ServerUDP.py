@@ -16,7 +16,7 @@ class ServerUDP(asyncore.dispatcher):
         self.create_socket(socket.AF_INET,socket.SOCK_DGRAM)
         self.bind(localaddr)
         self.target = None
-        self.loop_thread = threading.Thread(target=asyncore.loop, name="Asyncore Loop")
+        self.loop_thread = threading.Thread(target=AsyncoreThread, name="Asyncore Loop")
         self.loop_thread.start()
         self.pingAdded = 0
         self.sid = 0
@@ -43,10 +43,20 @@ class ServerUDP(asyncore.dispatcher):
         time.sleep(float(self.pingAdded)/1000.0)
         self.sendto(dumps(data),addr)
     def End(self):
+        print "UDP server closed "
         self.close()
+        asyncore.close_all()
+
+def AsyncoreThread():
+    print "Starting asyncore thread"
+    asyncore.loop(use_poll=True)
+    print "Ending asyncore thread ..."
 
 def main():
     serverUDP = ServerUDP("localhost",9999)
+
     asyncore.loop()
+
+
 if __name__ == "__main__":
     main()

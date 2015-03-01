@@ -9,20 +9,24 @@ from source.gui.rects import RectManager                         #######
 from source.gui.window_system import WindowSystem                 ######
 from source.gui.checkExit import CheckExit                         #####
 from PodSixNet.Connection import connection, ConnectionListener     ####
+from source.network_game.server_window import ServerWindow          ####
 from source.network_game.server_list import ServerListWindow         ###
 from source.network_game.loading_server import LoadingServerWindow   ###
 from source.network_game.disconected import DisconectedWindow        ###
 from source.network_game.room_list import RoomList                   ###
 from source.network_game.network_area import NetworkArea             ###
 from source.network_game.ProfileSettings import ProfileSettings      ###
-from PodSixNet.ClientUDP import ClientUDP                           ####
-from source.data import config                                     #####
-from source.database.session_query import *                       ######
+from PodSixNet.ClientUDP import ClientUDP                             ##
+from source.data import config                                        ##
+from source.database.session_query import *                           ##
+from source.network_game.check_reopen_window import CheckReopenWindow ##
 ########################################################################
 ########################################################################
 
 class GraphicManager(ConnectionListener,WindowSystem,RectManager): #we are a connection listener as we handle the networking, and a window system because we also deal with windows
     def __init__(self):
+        print GetSessionData()
+
         WindowSystem.__init__(self) #init window system
         RectManager.__init__(self) #init rect manager
 
@@ -42,10 +46,12 @@ class GraphicManager(ConnectionListener,WindowSystem,RectManager): #we are a con
         self.UDPconnection.SetPing(config.ping_client) #set the ping simulator (used in debug mode, in play mode is 0)
         self.UDPconnection.SetIrregular(config.irregular_ping) #set the ping simulator irregularity
 
-
         #### DEFAULT NETWORK ####
         self.stageActionDef = None #the function that will be called from the game when there is new network data. As in the start there is
         #no stage, the default value is None
+
+        self.noPlayed = True
+        self.endSignal = 0
     def LogicUpdate(self):
         if self.start_pump: #if we are connected
             self.Pump() #podsixnet library working
@@ -68,13 +74,27 @@ class GraphicManager(ConnectionListener,WindowSystem,RectManager): #we are a con
         self.focused = -1
         self.locked = False
         self.AddWindowCentered(ServerListWindow(),None,"Server List") #add the server list window
+        if self.noPlayed:
+            ### CHECK IF WE HAVE OLD SESSION DATA TO RESTORE ###
+            self.CheckSession()
+            self.noPlayed = False
+    def CheckSession(self): ### check for session data ###
+        sessionData = GetSessionData()
+        if standards(sessionData): ###if session data applies to standards to rejoin the game ###
+            win = CheckReopenWindow(self,sessionData)
+            self.AddWindowCenteredOnFront(win,None,"ReturnWin") ### add the window to ask to join game ###
+
+    def TryConnectServer(self,ip,port,name):
+        self.AddWindowCenteredOnFront(ServerWindow(0,0,name,ip,self),pygame.display.get_surface())
     def DecideToPlay(self,room_name): #called when we connect to a server and we want to request rooms
         self.server_name = room_name
         self.mode = "LoadingRoomList" #change our mode to loading
         self.DeleteAllWindows()
         self.Send({"action":"request_rooms"}) #request server the rooms
         self.AddWindowCenteredOnFront(LoadingServerWindow(room_name,self),None,"Loading") #display loading window
+        SessionDeclareConnect(self.host)
     def Return2ServerList(self): #if we disconnect from the game
+        SessionDeclareDisconnect()
         self.mode = "Select server" #return to select server status
         self.DeleteAllWindows()
         if self.start_pump:
@@ -97,6 +117,7 @@ class GraphicManager(ConnectionListener,WindowSystem,RectManager): #we are a con
         self.DeleteAllWindows()
         self.mode = "Playing"
         self.stage = NetworkArea(data,self) #add the stage with the initial data and myself
+
     def ReturnRoomListFP(self): #if we want to return from profile to room list
         ### FROM PROFILE ###
         print "Going from profile to room list"
@@ -107,6 +128,7 @@ class GraphicManager(ConnectionListener,WindowSystem,RectManager): #we are a con
         ### FROM GAME ###
         print "Exiting game, going to room list"
         self.Send({"action":"exit_game"}) #send the server that information
+        SessionDeclareExitRoom()
         self.RequestsRoomsAgain() #request server the rooms
         self.stage = None #delete the stage. We don't need it anymore
         self.AddWindowCenteredOnFront(LoadingServerWindow(self.server_name,self,True)) #add the loading window while we wait for the rooms
@@ -137,16 +159,19 @@ class GraphicManager(ConnectionListener,WindowSystem,RectManager): #we are a con
         connection.Close() #close connection
     def Network_basic_data(self,data): #called when server send to us the basic data of the game (the players amount, if he accept us and our id)
         self.my_id = data["id"] #our id is needed for the udp, as we need it to identify us in the server as udp is not authenticated
+        self.server_name = data["info"]["name"]
         self.rbasicDef(data) #call our function to handle the basic data
     def Network_udp_signal(self,data): #called when server send us the udp ping signal (used to calculate the ping and show in screen)
         self.udpSignalDef()  #call our function that handle the udp signal
     def Network_disconnected(self,data): #called when the server disconnect us (our connection is lost or the server crashed
-        print "Network connection lost"
+        SessionDeclareDisconnect()
 
+        print "Network connection lost"
         if self.mode != "Select server": #if the mode is not the first mode
             self.stage = None #delete stage if we are playing
             self.Return2ServerList() #return to server list (in order to let the player connect to another server)
             self.AddWindowCenteredOnFront(DisconectedWindow(),None,"Error") #add the disconnected message
+        self.endSignal = 1
     def Network_opinion(self,data): #called when the server request us to fill a survey
         self.optionRoomsDef("opinion",data) #our function that handles that
     def Network_rooms_data(self,data): #called  when the server send us data of the rooms
@@ -157,7 +182,7 @@ class GraphicManager(ConnectionListener,WindowSystem,RectManager): #we are a con
         self.optionRoomsDef("req-name",data) #our function that handles that
     def Network_update_rooms(self,data): #called when the server send us information of the rooms
         self.updateRoomsDef(data) #our function that handles that
-    def Network_initial_join(self,data): #called when the server send us initial information when we have just joined
+    def Network_initial_join(self,data): #called when the server send us initial information when we have just joined to a room
         self.my_id = data["id"] #we set our id
         self.StartGame(data) #call our start game function to handle that
     def Network_data_players(self,data): #
@@ -171,6 +196,8 @@ class GraphicManager(ConnectionListener,WindowSystem,RectManager): #we are a con
         self.profileSettingsDef(data) #the function that handles that
     def Network_confirm_login(self,data):
         self.loginDef(data)
+    def Network_confirm_signup(self,data):
+        self.registerDef(data)
     #### UDP ####
     def Network_UDP_data(self,data): #called when there is new udp data (called from UDPconnection)
         connection.Network(data) #tell the connection to handle that information
@@ -178,12 +205,11 @@ class GraphicManager(ConnectionListener,WindowSystem,RectManager): #we are a con
         if self.my_id == -1: #if we don't have our id we can not send data as the server can not identify who we are
             print "Can't send UDP data because id=-1"
             return
-
         self.UDPconnection.Send(data,self.my_id) #send the data
     #### SETTING NETWORK DEF ####
     def SetErrorDef(self,func):  ##All this functions are equal and are to set the functions that will operate when there is server data ##
         self.networkErrorDef = func
-    def SetConnectDef(self,func):
+    def SetConnectDef(self,func): ### When we are connected
         self.connectDef = func
     def SetOptionRoomsDef(self,func):
         self.optionRoomsDef = func
@@ -201,6 +227,8 @@ class GraphicManager(ConnectionListener,WindowSystem,RectManager): #we are a con
         self.profileSettingsDef = func
     def SetLoginDef(self,func):
         self.loginDef = func
+    def SetRegisterDef(self,func):
+        self.registerDef = func
     def Network(self,data):
         if data["action"] == "rooms_data":
             print "Rooms data received"
@@ -217,4 +245,6 @@ class GraphicManager(ConnectionListener,WindowSystem,RectManager): #we are a con
     def End(self): #called to close UDP Connection
         if self.UDPconnection:
             self.UDPconnection.End()
+
+
 

@@ -22,6 +22,7 @@ class ServerChannel(Channel):
         self.ip = "nn"
         self.conn = "nn"
         self.name = "noName"
+        self.guest = False
         self.head = Heads.heads[random.randrange(len(Heads.heads))]
 
         self.RoomDef = None
@@ -37,6 +38,8 @@ class ServerChannel(Channel):
             self._server.UDPconnector.Send(data,self.udpAddr)
     def Close(self):
         print "Player",self.GetID(),"has left the game"
+        if config.CLOSE_WHEN_CLIENT_LOST:
+            self._server.Close()
         if self.RoomDef:
             self.RoomDef(self,"lost")
         self._server.HandlePlayerLost(self)
@@ -48,7 +51,7 @@ class ServerChannel(Channel):
         self.SendBasicUDP()
     def Network_request_rooms(self,data):
         if self.status == "checkData":
-            print "Player",self.GetID()," has decided to join the game"
+            """print "Player",self.GetID()," has decided to join the game"
             allow , reason = self._server.AllowEntrance()
             if allow:
                 if serverQ.CheckOpinionNeed(self.ip):
@@ -63,7 +66,8 @@ class ServerChannel(Channel):
                     #self.SendRooms()
             else:
                 print "However the server is full so the player will be rejected"
-                self.SendNotAllow(reason)
+                self.SendNotAllow(reason)"""
+            self.SendRequestName()
         elif self.status == "already-connected":
             print "Player",self.GetID(),"requested rooms again"
             self.SendRooms()
@@ -88,6 +92,7 @@ class ServerChannel(Channel):
             error  = "Name too short"
         if allowed_name:
             self.name = data["name"]
+            self.guest = True
             self.SendRooms()
         else:
             self.Send({"action":"name_error","error":error})
@@ -132,9 +137,24 @@ class ServerChannel(Channel):
     def Network_check_login(self,data):
         check = serverQ.CheckLogin(data["username"],data["password"])
         if check["Works"]:
+            self.guest = False
+            self.name = data["username"]
             self.Send({"action":"confirm_login","pass":"DT"})
+            self.SendRooms()
         else:
             self.Send({"action":"confirm_login","pass":"error","error":check["Error"]})
+    def Network_register(self,data):
+        have_error = False
+        error = ""
+        if data["confirmation"] == data["password"]:
+            register = serverQ.AddUser(data["username"],data["password"],data["email"])
+            if register:
+                pass
+            else:
+                error = "Username already exists"
+        else:
+            error = "Passwords don't match"
+        self.Send({"action":"confirm_signup","error":error})
     def SetRoomDef(self,func):
         print "room def set"
         self.RoomDef = func
@@ -177,7 +197,9 @@ class WhiteboardServer(Server):
         self.ip = kwargs["localaddr"][0]
         self.port = kwargs["localaddr"][1]
         self.svr_name = "localhost"#raw_input("Server name: ")
-        MySQL.AddServer(self.svr_name,self.ip)
+        while not MySQL.AddServer(self.svr_name,self.ip):
+            print "Name allready exists"
+            self.svr_name = raw_input("New name: ")
         MySQL.CheckDeadServers()
         ##### START UDP #####
         self.UDPconnector = ServerUDP(*args,**kwargs)
@@ -194,8 +216,8 @@ class WhiteboardServer(Server):
         self.dictOrder = []
 
         self.play = True
-        self.commandsThread = threading.Thread(target=self.CommandThreadDef,name="Commands thread")
-        self.commandsThread.start()
+        #self.commandsThread = threading.Thread(target=self.CommandThreadDef,name="Commands thread")
+        #self.commandsThread.start()
         self.Add5Rooms()
         self.last_time_sql_updated = time.time()
 
@@ -270,7 +292,7 @@ class WhiteboardServer(Server):
         pass
     def GetBasicInfo(self):
         allow , reason = self.AllowEntrance()
-        return {"mode":self.mode,"players":len(self.players.keys()),"max-players":self.max_players,"allow":allow,"reason":reason}
+        return {"name":self.name,"mode":self.mode,"players":len(self.players.keys()),"max-players":self.max_players,"allow":allow,"reason":reason}
     def GetRoomsData(self):
         rooms = []
         for key in self.dictOrder:
@@ -281,3 +303,7 @@ class WhiteboardServer(Server):
         self.gameWorlds[room_name].JoinPlayer(player)
     def GetPlayers(self):
         return Heads.heads
+    def Close(self):
+        print "Closing server ..."
+        self.play = False
+        self.UDPconnector.End()

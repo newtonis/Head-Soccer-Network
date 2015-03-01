@@ -6,42 +6,44 @@ import sqlite3
 def initSessionDB():
     conn = sqlite3.connect("databases/session.db")
     c = conn.cursor()
-    c.execute("CREATE TABLE session (status REAL,server TEXT ,logtype REAL,username TEXT,password TEXT,room TEXT)")
-    c.execute("INSERT INTO session (status,server,logtype,username,password,guest_name,room) values (0,0,0,'','',0) ")
+    c.execute('''CREATE TABLE session (status REAL,server TEXT ,logtype REAL,username TEXT,password TEXT,room TEXT)''')
+    c.execute("INSERT INTO session (status,server,logtype,username,password,room) values (0,'',0,'','',0) ")
     conn.commit()
     conn.close()
 def SessionDeclareConnect(ip):
-    conn = sqlite3.connect("database/session.db")
+    conn = sqlite3.connect("databases/session.db")
     c = conn.cursor()
     c.execute("UPDATE session SET status=1,server=:the_ip,username='',password='',room=0",{"the_ip":ip})
     conn.commit()
     conn.close()
 def SessionDeclareGuestName(name):
-    conn = sqlite3.connect("database/session.db")
+    print "logged as guest '",name,"'"
+    conn = sqlite3.connect("databases/session.db")
     c = conn.cursor()
-    c.execute("UPDATE session SET guest_name=:the_name",{"the_name":name})
+    c.execute("UPDATE session SET logtype=1,username=:the_name",{"the_name":name})
     conn.commit()
     conn.close()
 def SessionDeclareLogin(user,password):
-    conn = sqlite3.connect("database/session.db")
+    print "logged as '",user,"' with pass '",password,"'"
+    conn = sqlite3.connect("databases/session.db")
     c = conn.cursor()
-    c.execute("UPDATE session SET username=:the_username,password=:the_password",{"the_username":user,"the_password":password})
+    c.execute("UPDATE session SET logtype=2,username=:the_username,password=:the_password",{"the_username":user,"the_password":password})
     conn.commit()
     conn.close()
 def SessionDeclareEnterRoom(room_id):
-    conn = sqlite3.connect("database/session.db")
+    conn = sqlite3.connect("databases/session.db")
     c = conn.cursor()
     c.execute("UPDATE session SET status=2,room=:the_room",{"the_room":room_id})
     conn.commit()
     conn.close()
 def SessionDeclareExitRoom():
-    conn = sqlite3.connect("database/session.db")
+    conn = sqlite3.connect("databases/session.db")
     c = conn.cursor()
     c.execute("UPDATE session SET status=1")
     conn.commit()
     conn.close()
 def SessionDeclareDisconnect():
-    conn = sqlite3.connect("database/session.db")
+    conn = sqlite3.connect("databases/session.db")
     c = conn.cursor()
     c.execute("UPDATE session SET status=0")
     conn.commit()
@@ -54,7 +56,7 @@ def GetLoginData(data):
     else:
         return {"type":"needGuestName"}
 def GetSessionData():
-    conn = sqlite3.connect("database/session.db")
+    conn = sqlite3.connect("databases/session.db")
     c = conn.cursor()
     for row in c.execute("SELECT * FROM session"):
         data = row
@@ -66,3 +68,10 @@ def GetSessionData():
         return {"status":"TryConnect","ip":data[1],"logData":GetLoginData(data)}
     if status == 2:
         return {"status":"TryConnectRoom","ip":data[1],"logData":GetLoginData(data),"room":data[5]}
+
+def standards(data):
+    if data["status"] == "NoConnect":
+        return 0
+    if data["logData"]["type"] == "needGuestName":
+        return 0
+    return 1

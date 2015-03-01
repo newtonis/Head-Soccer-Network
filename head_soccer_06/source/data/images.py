@@ -55,6 +55,10 @@ class Heads:
 class Extras:
     void = LoadImage("Vacio.png")
 
+class Checkbox:
+    checkbox = LoadImage("checkbox.png")
+    checkbox_checked = LoadImage("checkbox_checked.png")
+
 def FillWithBack(surface,back):
     for x in range(surface.get_size()[0]):
         surface.blit(back,(x,0))

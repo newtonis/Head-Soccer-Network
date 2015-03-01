@@ -1,26 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="SQLite -" uuid="bb623f38-f176-4b16-bc51-a03e54262c3a">
-    <database-info product="SQLite" version="3.7.6.3" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
-    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
-    <schema name="" catalog=""/>
-    <table name="config" schema="" catalog="" type="TABLE">
-      <column name="interpolation" sqlType="REAL" precision="2000000000" scale="10" nullable="true" jdbcType="6"/>
-      <column name="threshold" sqlType="REAL" precision="2000000000" scale="10" nullable="true" jdbcType="6"/>
-    </table>
-    <table name="servers" schema="" catalog="" type="TABLE">
-      <column name="ip" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
-      <column name="name" sqlType="TEXTS" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
-    </table>
-  </data-source>
-  <data-source name="server" uuid="f6e4160e-1400-4f55-bebc-5897e6649cf3">
+  <data-source name="server" uuid="798f25f0-cd46-45a0-bf42-fd78287edf44">
     <database-info product="SQLite" version="3.7.6.3" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
     <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
     <schema name="" catalog=""/>
     <table name="login" schema="" catalog="" type="TABLE">
-      <column name="ID" sqlType="INT" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
-      <column name="Username" sqlType="VARCHAR" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
-      <column name="Password" sqlType="VARCHAR" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="ID" sqlType="INT" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="Username" sqlType="VARCHAR" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="Password" sqlType="VARCHAR" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="Email" sqlType="VARCHAR" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <primary-key columns="ID"/>
     </table>
     <table name="opinion" schema="" catalog="" type="TABLE">
       <column name="ip" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>

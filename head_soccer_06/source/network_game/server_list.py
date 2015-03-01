@@ -7,6 +7,7 @@ from source.data import fonts
 from source.network_game import list_system
 from source.network_game.server_window import ServerWindow
 from source.database.mysql import MySQL
+
 import source.network_game.add_server_window as AddServerWindow
 
 def add0(value):
@@ -74,6 +75,7 @@ class ServerListWindow(Window):
             if self.references["ListSystem"].selected != -1:
                 self.HandleServerWindowOpen(self.references["ListSystem"].ServerOpen())
                 self.enabled = False
+
         """if self.references["AddButton"].pressed:
             self.AddServer()
             self.enabled = False

@@ -3,13 +3,13 @@ __author__ = 'Dylan'
 import _mysql
 import time
 
-con = _mysql.connect('sql3.freemysqlhosting.net','sql368189','zL8!bB6%','sql368189') # Connecting to database
+con = _mysql.connect('db4free.net','grandt','1221dylan','headsoccerdb') # Connecting to database
 
 class SQLEngine:
     def CheckDeadServers(self):
         actual = self.GetServers()
         for x in actual:
-            if int(x["Created"]) < int(time.time()) - 120:
+            if float(x["Created"]) < time.time() - 120:
                 self.RemoveServer(x["IP"],x["Name"])
     def AddServer(self,name,ip):
         ### Add server to Servers database ###

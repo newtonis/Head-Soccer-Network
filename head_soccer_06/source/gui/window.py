@@ -24,6 +24,7 @@ class Window:
         self.downAlpha = downAlpha
         self.borderColor = borderColor
         self.GenerateSurface()
+        self.mouseOut = False
     def SetParent(self,parent):
         self.parent = parent
     def GenerateSurface(self):
@@ -47,6 +48,12 @@ class Window:
 
         self.surface = surfaceEnd
     def LogicUpdate(self):
+
+        if not self.pressed and not self.mouseOut:
+            self.mouseOut = True
+        if not self.mouseOut:
+            return
+
         for element in self.elements:
             element.enabled = self.enabled
             element.LogicUpdate()
@@ -77,6 +84,12 @@ class Window:
                 del self.elements[x]
                 del self.references[id]
                 return
+    def DeleteAllElements(self):
+        references =  []
+        for r in self.references:
+            references.append(r)
+        for ref in references:
+            self.DeleteElement(ref)
     def SetReference(self,element,reference,value=1):
         if value != 1:
             reference += "#"+str(value)

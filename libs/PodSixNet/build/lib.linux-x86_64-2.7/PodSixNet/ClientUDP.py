@@ -15,7 +15,7 @@ class ClientUDP(asyncore.dispatcher):
         self.create_socket(socket.AF_INET,socket.SOCK_DGRAM)
         self.bind( ('', 0) )
         self.target = None
-        self.loop_thread = threading.Thread(target=asyncore.loop, name="Asyncore Loop")
+        self.loop_thread = threading.Thread(target=AsyncoreThread, name="Asyncore Loop")
         self.loop_thread.start()
         self.pingAdded = 0
         self.sid = 0
@@ -64,6 +64,14 @@ class ClientUDP(asyncore.dispatcher):
     def End(self):
         print "UDP client closed"
         self.close()
+        asyncore.close_all()
+
+def AsyncoreThread():
+    print "Starting asyncore thread"
+
+    asyncore.loop(use_poll=True)
+
+    print "Ending asyncore thread ..."
 
 def main():
     clientUDP = ClientUDP("200.114.235.59",9999)

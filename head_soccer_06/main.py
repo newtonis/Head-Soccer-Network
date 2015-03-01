@@ -12,7 +12,7 @@ from random import randrange
 def main():
     #serverTh = threading.Thread(target=server_run.main,name="Server thread")
     #serverTh.start()hacemos dos uno
-    screen = pygame.display.set_mode((900,600),pygame.RESIZABLE) #create the game window
+    screen = pygame.display.set_mode((900,600),pygame.HWSURFACE) #create the game window
     pygame.display.set_caption("Head soccer 06")
     graphicManager = GraphicManager() #instanciate the graphic manageManager.StartNetworkGame() #tell graphic manager to start network game
     graphicManager.SetScreen(screen)
@@ -23,11 +23,13 @@ def main():
         events = pygame.event.get()
         graphicManager.Event(events)
         for event in events:
-            if event.type == pygame.QUIT:
+            if event.type == pygame.QUIT or graphicManager.endSignal == 1:
                 continuar = False
                 #server_run.server.play = False
             elif event.type == pygame.KEYDOWN:
-                pass
+                if event.key == pygame.K_LSHIFT:
+                    if pygame.key.get_pressed()[pygame.K_ESCAPE]:
+                        continuar = False
                 if event.key == pygame.K_s and pygame.key.get_pressed()[pygame.K_LSHIFT]: #to take a screenshot
                     print "screenshot mode"
                     file = raw_input("filename:")
@@ -37,8 +39,11 @@ def main():
                         print "screenshot canceled"
             #elif event.type == pygame.VIDEORESIZE:
              #   screen = pygame.display.set_mode((event.w,event.h),pygame.RESIZABLE)
-        #if int(time.time()) % 60 == 0:
-        #    pygame.image.save(screen,"screenshots/auto/"+"auto_"+str(int(time.time()))+"_"+str(randrange(1000))+".png")
+        if int(time.time()) % 60*30 == 0:
+            try:
+                pygame.image.save(screen,"screenshots/auto/"+"auto_"+str(int(time.time()))+"_"+str(randrange(1000))+".png")
+            except:
+                pass
         screen.fill((100,100,100))
         graphicManager.LogicUpdate() #logic working
         graphicManager.GraphicUpdate(screen) #paiting the game in the screen

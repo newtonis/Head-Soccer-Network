@@ -16,3 +16,6 @@ data = serverQ.GetConfigData()
 threshold = data[1] #0.001 #correction in the client, if a target position has less than threshold distance, it is corrected
 interpolation_constant = data[0] #0.30 #smooth client movement speed
 match_duration = 3 #the duration of the match in minutes
+
+
+CLOSE_WHEN_CLIENT_LOST = True #used for debugging propouses

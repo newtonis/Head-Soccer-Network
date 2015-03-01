@@ -6,6 +6,7 @@ from source.gui.window import Window
 from source.gui.text import Text
 from source.data import fonts
 from source.gui.button import NeutralButton,AdvancedButton
+from source.database.session_query import *
 
 class RoomList(Window):
     def __init__(self,server_name,room_data,parent):
@@ -57,7 +58,7 @@ class RoomList(Window):
         if self.ButtonCheck("Disconnect"):
             self.Kill()
             self.parent.Return2ServerList()
-        elif self.ButtonCheck("Connect"):
+        elif self.ButtonCheck("Connect") or pygame.key.get_pressed()[pygame.K_RETURN]:
             self.ConnectTo(self.references["LIST"].selected)
         if self.ButtonCheck("cplayer"):
             self.parent.Go2SelectPlayer()
@@ -81,6 +82,7 @@ class RoomList(Window):
             self.references["Connect"].GenerateButton()
     def ConnectTo(self,room_id):
         name = self.references["LIST"].contents[room_id].content["Name"]
+        SessionDeclareEnterRoom(name)
         print "Connect to",name
         self.Send({"action":"join_game","room_name":name})
     def StartJoin(self,data):

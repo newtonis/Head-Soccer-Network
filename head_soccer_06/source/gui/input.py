@@ -44,6 +44,8 @@ class Input(Element):
         self.events = []
         self.pressed_shift = False
         self.pressed_ctrl = False
+        self.pressed_tab = False
+        self.pressed_alt = False
         self.text_data = {"Locked in":"Left", "Difference":0, "Position":[0,0]}
         self.pressed_keys = []
         self.waiting_time = time.time()
@@ -142,6 +144,10 @@ class Input(Element):
                 if act_written[0] == "[":
                     act_written = act_written[1:2]
                 written = act_written
+                """  Haciendo funcionar el arroba con cualquiera de los dos alt  """
+                if self.pressed_alt and (act_written == "q" or act_written == "2") and self.special_allowed:
+                    written = "@"
+                    self.Write("@")
             if event.type == pygame.KEYUP:
                 keyup = pygame.key.name(event.key)
                 for x in range(len(self.pressed_keys)):
@@ -215,9 +221,17 @@ class Input(Element):
         if keyup == "left ctrl":
             self.pressed_ctrl = False
         if written == "tab":
+            self.pressed_tab = True
+        if keyup == "tab" and self.pressed_tab:
+            self.pressed_tab = False
             if self.next_input != None:
+                self.pressed_keys = []
                 self.selected = False
                 self.next_input.selected = True
+        if written == "right alt" or written == "left alt":
+            self.pressed_alt = True
+        if keyup == "right alt" or keyup == "left alt":
+            self.pressed_alt = False
         """  Analizando si se presionan las flechas para mover el cursor  """
         if written == "left":
             if self.selection["Start"] == 0:
@@ -304,7 +318,7 @@ class Input(Element):
         if self.password:
             text = ""
             for x in range(len(self.text)):
-                text += "X"
+                text += "x"
         """  Generating render  """
         render = self.font.render(text,1,self.font_color)
         if self.text_data["Locked in"] == "Left":
@@ -325,13 +339,13 @@ class Input(Element):
         selection_surface = pygame.Surface((selection_width.get_size()[0],self.cursor["Image"].get_size()[1]))
         selection_surface.fill((0,162,255))
         selection_surface.set_alpha(100)
-        if self.selection["Start"] != 0:
+        if self.selection["Start"] != 0 and self.selected:
             text_surface.blit(selection_surface,(text_pos[0]+start_pos,text_surface.get_size()[1]/2-self.cursor["Image"].get_size()[1]/2))
         """  Dibujando el text_surface en la pantalla  """
         background_copy.blit(text_surface,(self.separation,rad/2))
         """  Dibujando el cursor en la pantalla  """
         cursor_pos = [
-            self.font.render(self.text[:self.cursor["Letter"]],1,(0,0,0)).get_size()[0] + self.separation + text_pos[0],
+            self.font.render(text[:self.cursor["Letter"]],1,(0,0,0)).get_size()[0] + self.separation + text_pos[0],
             5
         ]
         if self.cursor["Enabled"] and self.selected:

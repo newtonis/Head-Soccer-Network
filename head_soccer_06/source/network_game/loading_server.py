@@ -7,6 +7,7 @@ from source.gui.text import Text
 from source.gui.button import *
 from source.gui.input import Input
 from source.network_game.login import Selector
+from source.database.session_query import *
 
 class LoadingServerWindow(Window):
     def __init__(self,name,parent,onlyRooms = False):
@@ -135,6 +136,7 @@ class LoadingServerWindow(Window):
                     self.mousePressed = 1
                 else:
                     self.mousePressed = 2
+                SessionDeclareGuestName(self.references["Input"].text)
                 self.Send({"action":"send_name","name":self.references["Input"].text})
                 self.FinalLoadingPart()
     def HandleButtonPressed(self,id):

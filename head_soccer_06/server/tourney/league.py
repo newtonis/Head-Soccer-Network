@@ -1,6 +1,6 @@
 __author__ = 'newtonis'
 
-from tourney import Tournament
+from server.tourney.tourney import Tournament
 
 class League(Tournament):
     def __init__(self):
