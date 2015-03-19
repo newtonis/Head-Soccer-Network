@@ -18,4 +18,4 @@ interpolation_constant = data[0] #0.30 #smooth client movement speed
 match_duration = 3 #the duration of the match in minutes
 
 
-CLOSE_WHEN_CLIENT_LOST = True #used for debugging propouses
+CLOSE_WHEN_CLIENT_LOST = False #used for debugging propouses

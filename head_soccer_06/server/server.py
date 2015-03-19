@@ -13,6 +13,7 @@ from source.data import config
 import random
 from database.mysql import MySQL
 import time
+from log.log_client import Log
 
 class ServerChannel(Channel):
     def __init__(self , *args, **kwargs):
@@ -37,17 +38,17 @@ class ServerChannel(Channel):
         if self.udpAddr != -1:
             self._server.UDPconnector.Send(data,self.udpAddr)
     def Close(self):
-        print "Player",self.GetID(),"has left the game"
+        Log.Print("Player",self.GetID(),"has left the game")
         if config.CLOSE_WHEN_CLIENT_LOST:
             self._server.Close()
         if self.RoomDef:
             self.RoomDef(self,"lost")
         self._server.HandlePlayerLost(self)
     def Network_request_basic(self,data):
-        print "Player",self.GetID(),"has decided to request basic information"
+        Log.Print("Player",self.GetID(),"has decided to request basic information")
         self.SendBasic()
     def Network_request_basicUDP(self,data):
-        print "request basic udp"
+        Log.Print("request basic udp")
         self.SendBasicUDP()
     def Network_request_rooms(self,data):
         if self.status == "checkData":
@@ -69,15 +70,15 @@ class ServerChannel(Channel):
                 self.SendNotAllow(reason)"""
             self.SendRequestName()
         elif self.status == "already-connected":
-            print "Player",self.GetID(),"requested rooms again"
+            Log.Print("Player",self.GetID(),"requested rooms again")
             self.SendRooms()
     def Network_get_opinion(self,data):
-        print "Player",self.GetID(),"opinion has arrived"
+        Log.Print("Player",self.GetID(),"opinion has arrived")
         if data["option"] >= len(self.opinion["options"]):
-            print "Opinion corrupted!",data["option"]
+            Log.Print("Opinion corrupted!",data["option"])
         else:
-            print self.opinion["question"]
-            print "He has elected '"+self.opinion["options"][data["option"]]+"'"
+            Log.Print(self.opinion["question"])
+            Log.Print("He has elected '"+self.opinion["options"][data["option"]]+"'")
             serverQ.AddOpinion(self.ip,self.opinion["id"],data["option"])
         self.SendRequestName()
     def Network_send_name(self,data):
@@ -97,12 +98,12 @@ class ServerChannel(Channel):
         else:
             self.Send({"action":"name_error","error":error})
     def Network_join_game(self,data):
-        print "Player",self.GetID(),"want to join to room",data["room_name"]
+        Log.Print("Player",self.GetID(),"want to join to room",data["room_name"])
         self._server.JoinPlayer(self,data["room_name"])
     def Network_exit_game(self,data):
         self.RoomDef(self,"exit",data)
     def Network_req_av_players(self,data):
-        print "Player",self.GetID(),"requested players available"
+        Log.Print("Player",self.GetID(),"requested players available")
         self.Send({"action":"data_players","players":self._server.GetPlayers(),"player-name":self.name})
     def Network_set_configuration(self,data):
         error = ""
@@ -115,7 +116,7 @@ class ServerChannel(Channel):
         else:
             data["name"] = self.name
         if error == "":
-            print "Player",self.GetID(),"has just changed his/her name to",data["name"]
+            Log.Print("Player",self.GetID(),"has just changed his/her name to",data["name"])
             self.name = data["name"]
         self.head = data["headcode"]
         self.Send({"action":"profile_conf_error","error":error})
@@ -156,7 +157,7 @@ class ServerChannel(Channel):
             error = "Passwords don't match"
         self.Send({"action":"confirm_signup","error":error})
     def SetRoomDef(self,func):
-        print "room def set"
+        Log.Print("room def set")
         self.RoomDef = func
     def SendBasic(self):
         self.Send({"action":"basic_data","info":self._server.GetBasicInfo(),"id":self.id})
@@ -192,13 +193,13 @@ class WhiteboardServer(Server):
     def __init__(self,*args,**kwargs):
 
         Server.__init__(self,*args,**kwargs)
-        print "Starting server..."
+        Log.Print("Starting server...")
 
         self.ip = kwargs["localaddr"][0]
         self.port = kwargs["localaddr"][1]
         self.svr_name = "localhost"#raw_input("Server name: ")
         while not MySQL.AddServer(self.svr_name,self.ip):
-            print "Name allready exists"
+            Log.Print("Name allready exists")
             self.svr_name = raw_input("New name: ")
         MySQL.CheckDeadServers()
         ##### START UDP #####
@@ -224,12 +225,12 @@ class WhiteboardServer(Server):
     ##### UDP DEF #####
     def Network_UDP_data(self,data,addr):
         if not data.has_key("id"):
-            print "Mysterious UDP data"
+            Log.Print("Mysterious UDP data")
         if not self.clients.has_key(str(data["id"])):
-            print "Mysterious UDP Data ID",data["id"]
+            Log.Print("Mysterious UDP Data ID",data["id"])
         self.clients[data["id"]].udpAddr = addr
         if self.clients[data["id"]].addr[0] != addr[0]:
-            print "Hacking from",addr,"trying to be player",data["id"]
+            Log.Print("Hacking from",addr,"trying to be player",data["id"])
         self.clients[data["id"]].collect_incoming_data(data["content"])
         self.clients[data["id"]].found_terminator()
 
@@ -262,9 +263,9 @@ class WhiteboardServer(Server):
             reason = "Server full"
         return allowed , reason
     def Connected(self , channel , addr):
-        print ""
-        print "Player connected (",addr,"), the id=",channel.id,"has just been assigned"
-        print "Waiting to him to define if he'll play or only request information..."
+        Log.Print("")
+        Log.Print("Player connected (",addr,"), the id=",channel.id,"has just been assigned")
+        Log.Print("Waiting to him to define if he'll play or only request information...")
         self.clients[channel.id] = channel
         channel.ip   = addr[0]
         channel.conn = addr[1]
@@ -285,7 +286,7 @@ class WhiteboardServer(Server):
         elif com == "all-players":
             self.ShowAllPlayers()
         else:
-            print "command",com," not found"
+            Log.Print("command",com," not found")
     def HandlePlayerLost(self,player):
         del self.clients[player.id]
     def ShowAllPlayers(self):
@@ -304,6 +305,6 @@ class WhiteboardServer(Server):
     def GetPlayers(self):
         return Heads.heads
     def Close(self):
-        print "Closing server ..."
+        Log.Print("Closing server ...")
         self.play = False
         self.UDPconnector.End()

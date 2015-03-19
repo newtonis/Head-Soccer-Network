@@ -189,8 +189,8 @@ class ServerWindow(Window):
             self.SendUDP({"action":"request_basicUDP"})
 
             self.allowConnect = True
-            #self.SetMessage("Connect to server?")
-            #self.AddAcceptReject()
+            self.SetMessage("Connect to server?")
+            self.AddAcceptReject()
         else:
             self.allowConnect = False
             self.SetMessage(data["info"]["reason"])

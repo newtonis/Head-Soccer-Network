@@ -5,8 +5,7 @@ import time
 from source.physics import gameV2
 from source.physics.gameV2 import *
 import stadiums
-
-
+from log.log_client import Log
 
 class Game:
     def __init__(self,name,stadium,mode,players,type="testing"):
@@ -115,12 +114,12 @@ class Game:
     def PlayerExit(self,player):
         if not self.spectators.has_key(str(player.id)):
             return
-        print "Player",player.GetID(),"decided to quit room"
+        Log.Print("Player",player.GetID(),"decided to quit room")
 
         del self.spectators[player.id]
         for playX in range(len(self.playA)):
             if self.playA[playX].id == player.id:
-                print "Player",player.GetID(),"has abandoned the 'A' side"
+                Log.Print("Player",player.GetID(),"has abandoned the 'A' side")
                 del self.playA[playX]
                 self.gameEngine.RemoveTeamAName()
                 if self.status == "waiting":
@@ -146,14 +145,14 @@ class Game:
     def IsInMatch(self):
         return self.matchIsBeingPlayed
     def Alose(self):
-        print "The 'A' side cannot play anymore"
+        Log.Print("The 'A' side cannot play anymore")
         #self.gameEngine.RemoveTeamAName()
         self.status = "skipRematchEnd"
         self.gameEngine.AddWord("W.O. "+self.gameEngine.BteamName+" wins",(100,50,50),20,"Boombox20")
         self.gameEngine.StopClock(True)
         self.gameEngine.DeleteElement(self.ballID)
     def Blose(self):
-        print "The 'B' side cannot play anymore"
+        Log.Print("The 'B' side cannot play anymore")
         #self.gameEngine.RemoveTeamBName()
         self.status = "skipRematchEnd"
         self.gameEngine.AddWord("W.O. "+self.gameEngine.AteamName+" wins",(100,50,50),20,"Boombox20")
@@ -163,7 +162,7 @@ class Game:
         self.PlayerExit(player)
     def JoinA(self,player):
         if len(self.playA) < self.players["sideA"]:
-            print "Player",player.GetID(),"joined 'A' side"
+            Log.Print("Player",player.GetID(),"joined 'A' side")
             self.queueInput[player.id] = []
             id = self.gameEngine.AddPlayer(player.head,'A1')
             player.Send({"action":"sa","type":"confirm_join","element_id":id})
@@ -174,11 +173,11 @@ class Game:
             if self.type == "Real":
                 self.CheckStart()
         else:
-            print "'A' side is full so player",player.GetID(),"cannot join"
+            Log.Print("'A' side is full so player",player.GetID(),"cannot join")
             self.SendFull(player)
     def JoinB(self,player):
         if len(self.playB) < self.players["sideB"]:
-            print "Player",player.GetID(),"joined 'B' side"
+            Log.Print("Player",player.GetID(),"joined 'B' side")
             self.queueInput[player.id] = []
             id = self.gameEngine.AddPlayer(player.head,'A2')
             player.Send({"action":"sa","type":"confirm_join","element_id":id})
@@ -190,14 +189,14 @@ class Game:
             if self.type == "Real":
                 self.CheckStart()
         else:
-            print "'B' side is full so player",player.GetID(),"cannot join"
+            Log.Print("'B' side is full so player",player.GetID(),"cannot join")
             self.SendFull(player)
     def CheckStart(self):
         if len(self.playA) == self.players["sideA"] and len(self.playB) == self.players["sideB"]:
             self.matchIsBeingPlayed = True
             self.status = "WS"
     def Spectate(self,player):
-        print "Player",player.GetID(),"joined as 'spectator'"
+        Log.Print("Player",player.GetID(),"joined as 'spectator'")
         player.Send({"action":"sa","type":"confirm_join"})
     def SendFull(self,player):
         player.Send({"action":"sa","type":"full_area"})
@@ -251,7 +250,7 @@ class Game:
                 self.refWait = time.time() * 1000
                 self.StoreHalf()
             elif self.gameEngine.clock.GetStatus() == "final":
-                print "End of the match"
+                Log.Print("End of the match")
                 self.playing = False
                 self.status = "endRematch"
                 self.gameEngine.StopClock(True)
@@ -303,7 +302,7 @@ class Game:
     def SendJoinWindowToAll(self):
         self.SendToAll({"action":"sa","type":"joinWindow","data_join":self.GetJoinInfo()})
     def EndMatch(self):
-        print "End match"
+        Log.Print("End match")
         self.playA = []
         self.playB = []
         for k in self.clientsPlayers.keys():

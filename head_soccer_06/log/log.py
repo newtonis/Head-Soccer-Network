@@ -19,4 +19,5 @@ def main():
         eng.LogicUpdate()
         pygame.display.update()
 
-main()
+if __name__ == "__main__":
+    main()

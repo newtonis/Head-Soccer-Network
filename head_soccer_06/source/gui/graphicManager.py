@@ -171,7 +171,7 @@ class GraphicManager(ConnectionListener,WindowSystem,RectManager): #we are a con
             self.stage = None #delete stage if we are playing
             self.Return2ServerList() #return to server list (in order to let the player connect to another server)
             self.AddWindowCenteredOnFront(DisconectedWindow(),None,"Error") #add the disconnected message
-        self.endSignal = 1
+        #self.endSignal = 1
     def Network_opinion(self,data): #called when the server request us to fill a survey
         self.optionRoomsDef("opinion",data) #our function that handles that
     def Network_rooms_data(self,data): #called  when the server send us data of the rooms

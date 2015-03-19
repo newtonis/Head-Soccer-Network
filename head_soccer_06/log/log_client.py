@@ -2,18 +2,28 @@ __author__ = 'grandt'
 from PodSixNet.Connection import connection,ConnectionListener
 import time
 
-class Log(ConnectionListener):
-    def __init__(self):
-        self.ip,self.port = "localhost",9998
-        self.Connect((self.ip,self.port))
-        self.running = True
+class LogClass(ConnectionListener):
+    def __init__(self,ip = "localhost",port = 1998):
+        self.ip,self.port = ip,port
+        self.running = False
+        if self.running:
+            self.Connect((self.ip,self.port))
         self.connected = False
         self.retrying = {"Error at":time.time(),"Retrying":False}
-    def Network_socketConnect(self,data):
+        self.saved_basic = None
+        self.saved_prints = []
+    def Network_connected(self,data):
         print "Connected to server"
         self.connected = True
+        if self.saved_basic:
+            self.Send(self.saved_basic)
+    def Network_disconnected(self,data):
+        print "Disconnected from server, retrying in 5 seconds"
+        self.connected = False
+        self.retrying["Retrying"] = True
+        self.retrying["Error at"] = time.time()
     def Network_error(self,data):
-        print data["error"][1],"Retrying in 5 seconds"
+        #print data["error"][1],"Retrying in 5 seconds"
         self.retrying["Retrying"] = True
         self.retrying["Error at"] = time.time()
     def LogicUpdate(self):
@@ -26,15 +36,33 @@ class Log(ConnectionListener):
                 if time.time() - self.retrying["Error at"] > 5:
                     self.retrying["Retrying"] = False
                     self.Connect((self.ip,self.port))
+            if self.connected:
+                if len(self.saved_prints) != 0:
+                    for x in self.saved_prints:
+                        self.Print(*x)
+                        self.saved_prints = []
+    def PrintError(self,*args):
+        if self.running and self.connected:
+            self.Send({"action":"print","print":args,"error":True})
+        elif not self.connected:
+            self.saved_prints.append(args)
+        else:
+            for x in args:
+                print x,
+            raise
     def Print(self,*args):
-        self.Send({"action":"print","print":args})
-    def SetBasic(self,name,title_color,color):
-        self.Send({"action":"set_basic","name":name,"title color":title_color,"color":color})
+        if self.running and self.connected:
+            self.Send({"action":"print","print":args,"error":False})
+        elif not self.connected:
+            self.saved_prints.append(args)
+        else:
+            for x in args:
+                print x,
+    def SetBasic(self,name,title_color,color,column):
+        action = {"action":"set_basic","name":name,"title color":title_color,"color":color,"column":column}
+        if self.connected:
+            self.Send(action)
+        else:
+            self.saved_basic = action
 
-if __name__ == "__main__":
-    log = Log()
-    log.SetBasic("Server",(0,166,255),(0,226,255))
-    log.Print("hola que tal como estas todo bien esto esta muy bien y es una prueba de que tal anda en multiple linea el algoritmo que hice para el texto")
-    finished = False
-    while not finished:
-        log.LogicUpdate()
+Log = LogClass()
