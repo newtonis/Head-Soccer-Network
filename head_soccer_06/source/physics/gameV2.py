@@ -455,6 +455,8 @@ class Element:
         self.last_positions = dict()
         self.freeze = False
         self.IntEnb = True
+
+        self.lastUpdate = None
         #self.listGoTo = []
     def SetMask(self,cat,mask):
         #self.body.categoryBits = cat
@@ -539,6 +541,14 @@ class ImageElement(Element): #### ENVIABLE ####
             else:
                 image = Heads.codes[self.image][self.side]
         screen.blit(image,(self.body.position[0]*self.handler.PPM - image.get_size()[0]/2,self.handler.pixelHeight-self.body.position[1]*self.handler.PPM - image.get_size()[1]/2))
+        if self.parent:
+            position = (self.body.position[0]*self.handler.PPM - image.get_size()[0]/2,self.handler.pixelHeight-self.body.position[1]*self.handler.PPM - image.get_size()[1]/2)
+            size = image.get_size()
+            if self.lastUpdate:
+                self.parent.AddUpdateRect(self.lastUpdate[0],self.lastUpdate[1],self.lastUpdate[2],self.lastUpdate[3])
+
+            self.lastUpdate = position[0] , position[1] , size[0] , size[1]
+            self.parent.AddUpdateRect(self.lastUpdate[0],self.lastUpdate[1],self.lastUpdate[2],self.lastUpdate[3])
     def GetCode(self):
         return {"type":self.type,"image":self.image,"position":rr05(self.body.position),"lv":rr05(self.body.linearVelocity),"side":self.side}
 
@@ -548,6 +558,7 @@ class DrawElement(Element): #### ENVIABLE ####
         self.type = "RectElement"
         self.color = 255,255,255
         self.draw = True
+        self.size = None
     def SetRect(self,color,position,size):
         body = self.handler.world.CreateStaticBody( position=( position[0],position[1]),shapes=polygonShape(box=(size[0], size[1])),color=(0,0,0) )
         self.SetGraphicBody(body)
@@ -559,6 +570,15 @@ class DrawElement(Element): #### ENVIABLE ####
         if self.body and self.handler and self.draw:
             for fixture in self.body.fixtures:
                 fixture.shape.draw(self.body, fixture , self.handler , self.color,screen)
+
+        if self.parent and self.size:
+            if self.lastUpdate:
+                self.parent.AddUpdateRect(self.lastUpdate[0],self.lastUpdate[1],self.lastUpdate[2],self.lastUpdate[3])
+
+            self.lastUpdate = self.body.position[0]*self.handler.PPM - self.size[0]/2 , self.handler.pixelHeight-self.body.position[1]*self.handler.PPM- self.size[1]/2 , self.size[0]+1,self.size[1]+1
+
+            self.parent.AddUpdateRect(self.lastUpdate[0],self.lastUpdate[1],self.lastUpdate[2],self.lastUpdate[3])
+
     def SetDraw(self,draw):
         self.draw = draw
     def GetCode(self):
@@ -608,6 +628,7 @@ class Ball(DrawElement):  #### ENVIABLE ####
 
         self.radius = rad
         self.IntEnb = False
+        self.size = rad * handler.PPM * 2 , rad * handler.PPM * 2
     def GetCode(self):
         return {"type":self.type,"color":self.color,"radius":self.radius,"position":rr05(self.body.position),"lv":rr05(self.body.linearVelocity)}
     def CollisionCallBack(self,player):
@@ -672,7 +693,7 @@ class PowerGameEngine(ScoreSystemCont,ClockSystemCont):
         self.FPS = 40.0
         self.TIME_STEP = 1.0/ self.FPS
         self.contactListener = contactL.MyContactListener()
-        self.world = Box2D.b2World(gravity=(0,-30),doSleep=True,contactListener=self.contactListener) #The Box2D world
+        self.world = Box2D.b2World(gravity=(0,-32),doSleep=True,contactListener=self.contactListener) #The Box2D world
 
 
         self.pixelHeight = 600
@@ -682,6 +703,7 @@ class PowerGameEngine(ScoreSystemCont,ClockSystemCont):
         self.sid = -1
 
         self.background = 255,100,0
+        self.backgroundImage = None
         self.mode = mode
         self.target = None
         self.clientTarget = None
@@ -739,6 +761,10 @@ class PowerGameEngine(ScoreSystemCont,ClockSystemCont):
         self.move = True
 
         ClockSystemCont.__init__(self,self.match_duration)
+    def SetParent(self,parent):
+        self.parent = parent
+    def AddUpdateRect(self,x,y,w,h):
+        self.parent.AddUpdateRect(x,y,w,h)
     def GetServer(self):
         if self.lastGoal != -1:
             if self.lastGoal == 0:
@@ -974,6 +1000,7 @@ class PowerGameEngine(ScoreSystemCont,ClockSystemCont):
             side = 1
 
         player = Player(headCode,self,side)
+
         if side == 0:
             player.SetMask(LAYER_1,LAYER_1 | LAYER_2 | LAYER_3 | LAYER_4)
         elif side == 1:
@@ -1042,11 +1069,13 @@ class PowerGameEngine(ScoreSystemCont,ClockSystemCont):
         elif element["type"] == "Ball":
             new_element = Ball(self,element["position"],element["lv"],element["color"],element["radius"])
             new_element.SetMask( LAYER_3 , LAYER_1 | LAYER_2 | LAYER_3)
+            new_element.parent = self
             #new_element.Freeze()
             id = self.AddElement(new_element,element["id"])
             self.balls.append(id)
         elif element["type"] == "Player":
             new_element = Player(element["image"],self,element["side"])
+            new_element.parent = self
             new_element.SetBodyPosition(element["position"])
             new_element.SetBodyLinearVelocity(element["lv"])
             new_element.Freeze()
@@ -1075,6 +1104,7 @@ class PowerGameEngine(ScoreSystemCont,ClockSystemCont):
         if pitchname == "classic":
             self.AddPitchStatics()
             self.SetBackground((200,200,255))
+            #self.SetBackgroundIMG(Heads.codes["ORTstadium"])
             self.AddGoals(Heads.goalClassic)
 
     def AddGoals(self,animation):
@@ -1086,6 +1116,8 @@ class PowerGameEngine(ScoreSystemCont,ClockSystemCont):
         self.AddGoal((self.pixelWidth-60,self.pixelHeight-170),"GoalB",1,animation)
     def AddGoal(self,position,name,side,animation):
         self.extraDraw[name] = Animation(animation,position,side)
+        self.extraDraw[name].SetParent(self)
+        self.extraDraw[name].SetUpdateSS()
     def GoalEffect(self,goal):
         self.extraDraw[goal].StartAnimation()
     def ResetGoalEffects(self):
@@ -1096,6 +1128,8 @@ class PowerGameEngine(ScoreSystemCont,ClockSystemCont):
             self.elements[ self.players[str(playerID)] ].UpdateActions(actions)
     def SetBackground(self,background):
         self.background = background
+    def SetBackgroundIMG(self,image):
+        self.backgroundImage = image
     def InitialContent(self,data):
         self.background = data["background"]
         self.CreateElements(data["elements"])
@@ -1195,7 +1229,10 @@ class PowerGameEngine(ScoreSystemCont,ClockSystemCont):
         self.extraDraw["GoalA"].Unclock()
         self.extraDraw["GoalB"].Unclock()
     def GraphicUpdate(self,screen):
-        screen.fill(self.background)
+        if not self.backgroundImage:
+            screen.fill(self.background)
+        else:
+            screen.blit(self.backgroundImage,(0,0))
         for sk in self.static.keys():
             self.static[sk].Draw(screen)
         for dd in self.extraDraw.keys():

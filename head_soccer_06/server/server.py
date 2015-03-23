@@ -197,7 +197,7 @@ class WhiteboardServer(Server):
 
         self.ip = kwargs["localaddr"][0]
         self.port = kwargs["localaddr"][1]
-        self.svr_name = "localhost"#raw_input("Server name: ")
+        self.svr_name = raw_input("Server name: ")
         while not MySQL.AddServer(self.svr_name,self.ip):
             Log.Print("Name allready exists")
             self.svr_name = raw_input("New name: ")

@@ -368,6 +368,7 @@ examples/pgu/gui/widget.pyc
 library/Box2D/Box2D.py
 library/Box2D/__init__.py
 library/Box2D.egg-info/PKG-INFO
+library/Box2D.egg-info/SOURCES (newtonis penguin's conflicted copy 2015-01-31).txt
 library/Box2D.egg-info/SOURCES.txt
 library/Box2D.egg-info/dependency_links.txt
 library/Box2D.egg-info/top_level.txt

@@ -22,6 +22,7 @@ class Surface(Element):
 
 class Animation(Surface):
     def __init__(self,animation,position,side = -1,frec=0.4):
+        self.us = False
         self.side = side
         self.SetAnimation(animation)
         Surface.__init__(self,None,position)
@@ -31,6 +32,10 @@ class Animation(Surface):
         self.period = 1.0/self.frec
         self.playAnimation = False
         self.locked = False
+    def SetParent(self,parent):
+        self.parent = parent
+    def SetUpdateSS(self):
+        self.us = True
     def SetFrec(self,frec):
         self.frec = frec
         self.period = 1.0/self.frec
@@ -52,6 +57,9 @@ class Animation(Surface):
             self.image = self.animation[self.current][self.side]
         else:
             self.image = self.animation[self.current]
+
+        if self.us:
+            self.parent.AddUpdateRect(self.x,self.y,self.image.get_size()[0],self.image.get_size()[1])
     def Reset(self):
         self.SetImageAnimation(0)
         self.playAnimation = False

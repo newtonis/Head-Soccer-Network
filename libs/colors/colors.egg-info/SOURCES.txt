@@ -1,0 +1,6 @@
+setup.py
+colors/colors.py
+colors.egg-info/PKG-INFO
+colors.egg-info/SOURCES.txt
+colors.egg-info/dependency_links.txt
+colors.egg-info/top_level.txt

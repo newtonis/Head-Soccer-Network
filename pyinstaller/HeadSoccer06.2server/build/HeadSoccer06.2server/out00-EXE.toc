@@ -1,0 +1,9 @@
+('/home/newtonis/Dropbox/Proyectos2015/HeadSoccer/pyinstaller/HeadSoccer06.2server/dist/HeadSoccer06.2server',
+ True,
+ False,
+ None,
+ None,
+ [],
+ None,
+ False,
+ 1427076795)

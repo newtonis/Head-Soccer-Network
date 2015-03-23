@@ -28,6 +28,7 @@ class NetworkArea(Container):
         self.parent.SetStageActionDef(self.NetworkAction)
 
         self.game = PowerGameEngine("client")
+        self.game.SetParent(self)
         self.game.SetClientTarget(self)
         self.game.SetData(initial_data["pitch_data"])
 
@@ -61,6 +62,10 @@ class NetworkArea(Container):
         self.fixedPing = 250
 
         self.chat = Chat((250,150),(0,255,255),(10,100),self)
+
+        self.refresh = True
+    def AddUpdateRect(self,x,y,w,h):
+        self.parent.AddUpdateRect(x,y,w,h)
     def AddPingNumber(self):
         pingText = Text(fonts.Absender.c20,"       ",(0,0,0))
         pingText.x = self.game.pixelWidth - 20 - pingText.surface.get_size()[0]
@@ -114,6 +119,8 @@ class NetworkArea(Container):
             self.Ereferences["PingText"].text = gPingText(pingValue)
             self.Ereferences["PingText"].color = gPingColor(pingValue)
             self.Ereferences["PingText"].Render()
+            pt = self.Ereferences["PingText"]
+            self.AddUpdateRect(pt.x,pt.y,pt.surface.get_size()[0],pt.surface.get_size()[1] )
         if self.SendEvents:
             if self.pingStatus == "highPing":
                 self.parent.references["pingWindow"].SetPing(pingValue)
@@ -143,6 +150,9 @@ class NetworkArea(Container):
         self.game.GraphicUpdate(screen)
         self.chat.GraphicUpdate(screen)
         Container.GraphicUpdate(self,screen)
+        if self.refresh:
+            self.refresh = False
+            self.parent.AddUpdateRect(0,0,900,600)
     def PlayerCollision(self,player_position,player_lv,ball_position,ball_lv):
         pass
     def MultipleMe(self,data,wait):
@@ -184,6 +194,7 @@ class NetworkArea(Container):
                 self.game.elements[self.playerID].UnFreeze()
                 self.game.SetPlayer(self.playerID)
             self.parent.DeleteAllWindows()
+            self.AddUpdateRect(0,0,900,600)
         elif data["type"] == "full_area":
             self.parent.references["joinWindow"].RejectJoin()
         elif data["type"] == "marker update A":

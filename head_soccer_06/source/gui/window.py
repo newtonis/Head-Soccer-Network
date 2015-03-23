@@ -71,6 +71,9 @@ class Window:
         for element in self.elements:
             element.GraphicUpdate(blitSurface)
         screen.blit(blitSurface,(self.x,self.y))
+
+    def AddUpdateRect(self,x,y,w,h):
+        self.parent.AddUpdateRect(self.x + x,self.y + y,self.width,self.height)
     def AddElement(self,element,reference="NoReference"):
         element.SetParent(self)
         self.elements.append(element)

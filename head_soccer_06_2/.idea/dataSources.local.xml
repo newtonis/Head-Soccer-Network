@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="server" uuid="2230be84-150a-4ae1-a4a8-84cb50ead775" />
+    <data-source name="session" uuid="67f78c67-19e4-408a-8a75-3c7a4a33c1f5" />
+    <data-source name="server_main_db" uuid="3160a58e-4b15-4f78-b332-30a14bf4272f" />
+  </component>
+</project>
