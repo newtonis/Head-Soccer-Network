@@ -15,7 +15,7 @@ current_host = dylan_server_host #currently is not being used as there is a raw_
 data = serverQ.GetConfigData()
 threshold = data[1] #0.001 #correction in the client, if a target position has less than threshold distance, it is corrected
 interpolation_constant = data[0] #0.30 #smooth client movement speed
-match_duration = 0.1 #the duration of the match in minutes
+match_duration = 3 #the duration of the match in minutes
 
 
 CLOSE_WHEN_CLIENT_LOST = False #used for debugging propouses
