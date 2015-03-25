@@ -1,9 +1,0 @@
-('/home/newtonis/head_soccer_network/head_soccer_executables/dist/head_soccer_06_3Server',
- True,
- False,
- None,
- None,
- [],
- None,
- False,
- 1427158153)
